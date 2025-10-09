@@ -11,7 +11,7 @@ public class LoginUserController {
         this.empresa = empresa;
     }
 
-    public Map<String, String> login(String user, String correo, String password) {
-        return empresa.iniciarSesion(user, correo, password);
+    public Map<String, String> login(String user, String email, String password) {
+        return empresa.login(user, email, password);
     }
 }

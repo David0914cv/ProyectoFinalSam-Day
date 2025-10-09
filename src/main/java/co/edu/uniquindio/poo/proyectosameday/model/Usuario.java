@@ -5,7 +5,7 @@ public class Usuario extends Persona {
     private String correo;
 
     public Usuario(String nombre, String telefono, String correo,String contrasena) {
-        super(nombre, telefono,Hash.hashearSHA256(contrasena));
+        super(nombre, telefono,Hash.hashear(contrasena));
         this.correo = correo;
     }
 

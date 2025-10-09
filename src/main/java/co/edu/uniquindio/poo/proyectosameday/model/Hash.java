@@ -5,7 +5,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Hash {
-    public static String hashearSHA256(String input) {
+    public static String hashear(String input) {
         try {
             // Crear el objeto MessageDigest con SHA-256
             MessageDigest md = MessageDigest.getInstance("SHA-256");

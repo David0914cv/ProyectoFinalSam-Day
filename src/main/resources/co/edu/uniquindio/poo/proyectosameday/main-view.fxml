@@ -3,6 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <BorderPane xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectosameday.viewController.PrimaryViewController">
         <top>
             <HBox spacing="20" styleClass="navbar">
@@ -16,7 +18,7 @@
         </top>
 
         <center>
-            <VBox alignment="CENTER" prefHeight="310.0" prefWidth="635.0" spacing="15" styleClass="main-section">
+            <VBox alignment="CENTER" prefHeight="452.0" prefWidth="737.0" spacing="15" styleClass="main-section">
                 <Label styleClass="title" text="Bienvenido a Same-Day" />
                 <Label styleClass="subtitle" text="Tu plataforma de envíos urbanos rápidos y seguros." />
                 <Button styleClass="primary-btn" text="Empieza Ahora" />

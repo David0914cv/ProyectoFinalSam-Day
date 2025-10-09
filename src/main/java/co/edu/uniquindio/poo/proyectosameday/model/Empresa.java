@@ -64,12 +64,13 @@ public class Empresa {
         return null;
     }
 
-    public Map<String,String> iniciarSesion(String tipo, String user, String contrasena){
+    public Map<String,String> login(String tipo, String user, String contrasena){
         Map<String,String> resp=new HashMap<>();
         switch (tipo) {
             case "Administrador" -> {
-                if (getAministrador(user) != null && getAministrador(user).getContrasena().equals(Hash.hashearSHA256(contrasena))) {
+                if (getAministrador(user) != null && getAministrador(user).getContrasena().equals(Hash.hashear(contrasena))) {
                     resp.put("message","Login exitoso");
+                    resp.put("id",getAministrador(user).getDocumento());
                     resp.put("user", getAministrador(user).getDocumento());
                     resp.put("name", getAministrador(user).getNombre());
                     return resp;
@@ -79,8 +80,9 @@ public class Empresa {
             }
             case "Usuario" -> {
                 Usuario user1 = (Usuario)(getUsuario(user));
-                if ( user1!=null && user1.getContrasena().equals(Hash.hashearSHA256(contrasena))) {
+                if ( user1!=null && user1.getContrasena().equals(Hash.hashear(contrasena))) {
                     resp.put("message","Login exitoso");
+                    resp.put("id",user1.getId());
                     resp.put("user", user1.getCorreo());
                     resp.put("name", user1.getNombre());
                     return resp;
@@ -90,8 +92,9 @@ public class Empresa {
             }
             case "Repartidor" -> {
                 Repartidor rep = (Repartidor)(getRepartidor(user));
-                if (rep!= null && rep.getContrasena().equals(Hash.hashearSHA256(contrasena))) {
+                if (rep!= null && rep.getContrasena().equals(Hash.hashear(contrasena))) {
                     resp.put("message","Login exitoso");
+                    resp.put("id",rep.getId());
                     resp.put("user", rep.getDocumento());
                     resp.put("name", rep.getNombre());
                     return resp;

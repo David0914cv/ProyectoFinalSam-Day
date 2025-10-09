@@ -28,7 +28,7 @@ public class PrimaryViewController {
     void onOpenSignUp() {
 
         if (signUp.getText().equals("Registrarse")) {
-            System.out.println("Registrarse");
+            app.openRegister();
         } else if (signUp.getText().equals("Cerrar Sesión")) {
             signUp.setText("Registrarse");
             login.setText("Iniciar sesión");
@@ -49,7 +49,7 @@ public class PrimaryViewController {
 
     @FXML
     void onOpenQuote() {
-        System.out.println("Cotizar");
+        app.openQuote();
     }
 
     public void setApp(App app) {

@@ -25,6 +25,16 @@
 }
 
 .main-section {
+    /*-fx-background-image: url("https://img.freepik.com/foto-gratis/carretilla-elevadora-angulo-alto-sobre-fondo-azul_23-2149853122.jpg?semt=ais_hybrid&w=740&q=80");*/
+    /*-fx-background-image: url("https://img.freepik.com/fotos-premium/servicio-entrega-renderizado-3d-motocicleta-ilustracion-3d-logistica-servicio-entrega-alimentos_542094-7.jpg");*/
+    /*-fx-background-image: url("https://img.freepik.com/fotos-premium/cajas-carton-sobre-fondo-azul-espacio-copia-generado-ia_979320-20442.jpg?semt=ais_hybrid&w=740&q=80");
+    */
+    /*-fx-background-image: url("https://img.freepik.com/fotos-premium/cajas-carton-dispuestas-alrededor-pared-azul-brillante-almacen-horas-luz-dia_124717-15386.jpg?semt=ais_hybrid&w=740&q=80");
+    */
+    -fx-background-image: url("https://img.freepik.com/fotos-premium/cajas-carton-sobre-fondo-azul-espacio-copia-generado-ia_979320-20437.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center;
     -fx-padding: 40px;
 }
 
@@ -86,8 +96,12 @@
     -fx-background-color: #B71C1C;
 }
 
-.login{
+.contentForm{
     -fx-padding: 30 150;
+    -fx-background-image: url("https://img.freepik.com/fotos-premium/cajas-carton-dispuestas-alrededor-pared-azul-brillante-almacen-horas-luz-dia_124717-15386.jpg?semt=ais_hybrid&w=740&q=80");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center;
 }
 
 .form-box {
@@ -128,3 +142,14 @@
 .hyperlink:hover {
     -fx-underline: true;
 }
+
+.lblForm{
+    -fx-padding: 10px 0 10px 0;
+}
+
+.result-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #27ae60;
+    -fx-font-weight: bold;
+}
+

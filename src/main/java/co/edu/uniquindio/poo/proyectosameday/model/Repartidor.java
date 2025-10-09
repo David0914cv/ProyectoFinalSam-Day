@@ -6,7 +6,7 @@ public class Repartidor extends Persona{
     private EstadoDisponibilidad estado;
 
     public Repartidor(String nombre, String telefono, String contrasena, String documento, EstadoDisponibilidad estado) {
-        super(nombre, telefono,Hash.hashearSHA256(contrasena));
+        super(nombre, telefono,Hash.hashear(contrasena));
         this.documento = documento;
         this.estado = estado;
     }

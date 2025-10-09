@@ -39,27 +39,22 @@ public class LoginUserViewController {
         Map<String,String> resp =controller.login(this.rol, user, password);
 
         if (resp.get("message").equals("Login exitoso")){
+            app.setId(resp.get("id"));
             app.setUser(resp.get("user"));
             app.setName(resp.get("name"));
             app.openMainView();
 
         }else{
-            Stage stage = (Stage) passwordField.getScene().getWindow();
-
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.initOwner(stage);
-            alert.initModality(Modality.WINDOW_MODAL);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText(resp.get("message"));
-            alert.showAndWait();
+            MethodsRecycle.showAlert("Error",resp.get("message"), Alert.AlertType.ERROR);
             System.out.println(resp.get("message"));
         }
         System.out.println("hola =" +resp);
     }
 
     @FXML
-    void onRegistrarse(){}
+    void onRegister(){
+        app.openRegister();
+    }
 
     @FXML
     void onLoginRepartidor(){
@@ -67,13 +62,13 @@ public class LoginUserViewController {
             this.rol="Repartidor";
             userField.setPromptText("Documento:");
             userLabel.setText("Documento:");
-            linkRol.setText("Iniciar como Cliente");
+            linkRol.setText("Iniciar Sesión como Cliente");
         }
         else if (rol.equals("Repartidor")){
             this.rol="Usuario";
             userField.setPromptText("Correo electrónico:");
             userLabel.setText("Correo electrónico:");
-            linkRol.setText("Iniciar como Repartidor");
+            linkRol.setText("Iniciar Sesión como Repartidor");
         }
 
     }
@@ -84,13 +79,13 @@ public class LoginUserViewController {
             this.rol="Administrador";
             userField.setPromptText("Documento:");
             userLabel.setText("Documento:");
-            linkRol.setText("Iniciar como Cliente");
+            linkRol.setText("Iniciar Sesión como Cliente");
         }
         else if (rol.equals("Administrador")){
             this.rol="Usuario";
             userField.setPromptText("Correo electrónico:");
             userLabel.setText("Correo electrónico:");
-            linkRol2.setText("Iniciar como Administrador");
+            linkRol2.setText("Iniciar Sesión como Administrador");
         }
     }
 

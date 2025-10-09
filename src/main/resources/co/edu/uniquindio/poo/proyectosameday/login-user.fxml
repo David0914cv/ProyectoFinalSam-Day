@@ -3,24 +3,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane styleClass="login" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectosameday.viewController.LoginUserViewController">
+<BorderPane styleClass="contentForm" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectosameday.viewController.LoginUserViewController">
     <center>
         <VBox prefHeight="461.0" prefWidth="412.0" styleClass="form-box">
 
             <Label styleClass="form-title" text="Iniciar Sesión" />
             <VBox>
-            <Label fx:id="userLabel" text="Correo electrónico:"/>
+            <Label styleClass="lblForm" fx:id="userLabel" text="Correo electrónico:"/>
             <TextField fx:id="userField" promptText="Correo electrónico" styleClass="form-input" />
-            <Label text="Contraseña:"/>
+            <Label styleClass="lblForm" text="Contraseña:"/>
             <PasswordField fx:id="passwordField" promptText="Contraseña" styleClass="form-input" />
 
             </VBox>
             <Button onAction="#onLogin" styleClass="primary-btn" text="Ingresar" />
-            <Hyperlink onAction="#onRegistrarse" text="Registrarse" />
-            <Hyperlink fx:id="linkRol" onAction="#onLoginRepartidor" text="Iniciar como Repartidor" />
-            <Hyperlink fx:id="linkRol2" onAction="#onLoginAdmin" text="Iniciar como Administrador" />
+            <Hyperlink onAction="#onRegister" text="¿Necesitas una cuenta? Registrarse" />
+            <Hyperlink fx:id="linkRol" onAction="#onLoginRepartidor" text="Iniciar Sesión como Repartidor" />
+            <Hyperlink fx:id="linkRol2" onAction="#onLoginAdmin" text="Iniciar Sesión como Administrador" />
 
-            <!-- Volver -->
+
             <Hyperlink onAction="#onBack" text="Volver a la pantalla principal" />
         </VBox>
     </center>
