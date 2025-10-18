@@ -113,7 +113,7 @@ public class App extends Application {
 
     public void inicializarData(){
         Persona user1 = new Usuario("David","3015112641","dabeats0914@gmail.com","123");
-        Persona rp1= new Repartidor("Nico","3124579888","1234","10911789", EstadoDisponibilidad.ACTIVO);
+        Persona rp1= new Repartidor("Nico","3124579888","1234","1010", EstadoDisponibilidad.ACTIVO);
         Administrador admin1 = new Administrador("789","Jorge Ivan Quintero","qwerty");
 
         empresa.agregarPersona(user1);

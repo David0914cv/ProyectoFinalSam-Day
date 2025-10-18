@@ -1,6 +1,7 @@
 module co.edu.uniquindio.poo.proyectosameday {
     requires javafx.controls;
     requires javafx.fxml;
+    requires jdk.unsupported.desktop;
 
 
     opens co.edu.uniquindio.poo.proyectosameday to javafx.fxml;

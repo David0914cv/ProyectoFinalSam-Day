@@ -32,6 +32,8 @@ public class QuoteShippingViewController {
     @FXML
     private TextField dimensionsField;
 
+    @FXML
+    private Label resultLabel;
 
     @FXML
     void onBack(){
@@ -55,8 +57,37 @@ public class QuoteShippingViewController {
             return;
         }
 
+        try {
+
+            String[] parts = dimensions.trim().toLowerCase().split("x");
+
+            if (parts.length != 3) {
+                throw new IllegalArgumentException("Formato incorrecto. Usa: largo x ancho x alto\nEjemplo: 20x20x20");
+            }
+
+            double dim1 = Double.parseDouble(parts[0]);
+            double dim2 = Double.parseDouble(parts[1]);
+            double dim3  = Double.parseDouble(parts[2]);
+
+
+            if (dim1 <= 0 || dim2 <= 0 || dim3 <= 0) {
+                MethodsRecycle.showAlert("Error","Las dimensiones deben ser mayores a 0", Alert.AlertType.ERROR);
+                return;
+            }
+
+
+        } catch (NumberFormatException e) {
+            MethodsRecycle.showAlert("Error","Error: Las dimensiones deben ser números. Ejemplo válido: 30x20x10", Alert.AlertType.ERROR);
+            return;
+        } catch (IllegalArgumentException e) {
+            MethodsRecycle.showAlert("Error", e.getMessage(), Alert.AlertType.ERROR);
+            return ;
+        }
+
+
         Cotizacion resp=controller.calculatePrice(origin, destination, weight, dimensions);
 
+        resultLabel.setText("$" + resp.getPrice());
         System.out.println(resp);
 
     }

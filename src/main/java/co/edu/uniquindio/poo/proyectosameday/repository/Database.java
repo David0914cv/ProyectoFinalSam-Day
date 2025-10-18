@@ -19,7 +19,7 @@ public class Database {
         listCiudades.add("FILANDIA");
         listCiudades.add("SALENTO");
         listCiudades.add("PIJAO");
-        listCiudades.add("MONTENERGRO");
+        listCiudades.add("MONTENEGRO");
         listCiudades.add("TEBAIDA");
         listCiudades.add("CORDOBA");
         listCiudades.add("QUIMBAYA");
