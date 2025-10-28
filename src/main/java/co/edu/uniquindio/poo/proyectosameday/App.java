@@ -126,6 +126,25 @@ public class App extends Application {
         }
     }
 
+    public void openAdmin() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("admin.fxml"));
+            BorderPane rootLayout = (BorderPane) loader.load();
+            AdminViewController adminViewController = loader.getController();
+            adminViewController.setApp(this);
+
+            Scene scene = new Scene(rootLayout);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("styles.css")).toExternalForm());
+            stage.setTitle("Administrador");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
 
     public String getUser() {
         return user;

@@ -6,7 +6,7 @@ public class Administrador {
     public Administrador(String documento, String nombre, String contrasena) {
         this.documento = documento;
         this.nombre = nombre;
-        this.contrasena = contrasena;
+        this.contrasena = Hash.hashear(contrasena);
     }
 
     public String getDocumento() {

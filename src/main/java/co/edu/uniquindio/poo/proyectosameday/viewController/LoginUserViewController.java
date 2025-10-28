@@ -42,6 +42,10 @@ public class LoginUserViewController {
             app.setId(resp.get("id"));
             app.setUser(resp.get("user"));
             app.setName(resp.get("name"));
+            if (rol.equals("Administrador")){
+                app.openAdmin();
+                return;
+            }
             app.openMainView();
 
         }else{
