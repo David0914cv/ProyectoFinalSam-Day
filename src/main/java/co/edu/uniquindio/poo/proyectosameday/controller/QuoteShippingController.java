@@ -1,6 +1,5 @@
 package co.edu.uniquindio.poo.proyectosameday.controller;
 
-import co.edu.uniquindio.poo.proyectosameday.model.Ciudad;
 import co.edu.uniquindio.poo.proyectosameday.model.Cotizacion;
 import co.edu.uniquindio.poo.proyectosameday.model.Empresa;
 

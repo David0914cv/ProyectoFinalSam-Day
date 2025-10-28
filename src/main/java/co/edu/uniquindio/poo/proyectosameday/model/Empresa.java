@@ -1,5 +1,7 @@
 package co.edu.uniquindio.poo.proyectosameday.model;
 
+import co.edu.uniquindio.poo.proyectosameday.repository.Database;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,6 +18,7 @@ public class Empresa {
         this.nit="12345";
         this.listPersonas=new ArrayList<>();
         this.listAdministradores=new ArrayList<>();
+        cargarDatos();
     }
 
     public static Empresa getInstance(){
@@ -107,6 +110,12 @@ public class Empresa {
         resp.put("message","Usuario o contraseña incorrecto");
         return resp;
 
+    }
+
+    public void cargarDatos(){
+        Database db=Database.getInstance();
+        this.listPersonas.addAll(db.getListPersonas());
+        this.listAdministradores.addAll(db.getListAdministradores());
     }
 
     public String getNombre() {

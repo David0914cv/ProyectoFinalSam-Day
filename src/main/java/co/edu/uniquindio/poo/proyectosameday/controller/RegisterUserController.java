@@ -18,7 +18,7 @@ public class RegisterUserController {
         for (int i = 0; i < empresa.getListPersonas().size(); i++) {
             if (user.getId().equals(empresa.getListPersonas().get(i).getId())){
                 user = new Usuario(name, cell, email, password);
-                i=-1;
+                i=0;
             }
         }
 

@@ -6,7 +6,6 @@ public class Cotizacion {
     private String ciudadOrigen,ciudadDestino;
     private int peso;
     private String dimensiones;
-
     private double price;
 
     private Cotizacion(Builder builder) {
@@ -369,6 +368,8 @@ public class Cotizacion {
 
         return 1000;
     }
+
+
 
     public String getCiudadOrigen() {
         return ciudadOrigen;

@@ -2,8 +2,6 @@ package co.edu.uniquindio.poo.proyectosameday.viewController;
 
 import co.edu.uniquindio.poo.proyectosameday.App;
 import co.edu.uniquindio.poo.proyectosameday.controller.QuoteShippingController;
-import co.edu.uniquindio.poo.proyectosameday.controller.RegisterUserController;
-import co.edu.uniquindio.poo.proyectosameday.model.Ciudad;
 import co.edu.uniquindio.poo.proyectosameday.model.Cotizacion;
 import co.edu.uniquindio.poo.proyectosameday.repository.Database;
 import javafx.application.Platform;
@@ -16,6 +14,7 @@ public class QuoteShippingViewController {
     App app;
     Database db;
     QuoteShippingController controller;
+    Cotizacion cotizacion;
 
     @FXML
     private Label lblTitle;
@@ -86,10 +85,16 @@ public class QuoteShippingViewController {
 
 
         Cotizacion resp=controller.calculatePrice(origin, destination, weight, dimensions);
+        this.cotizacion=resp;
 
         resultLabel.setText("$" + resp.getPrice());
         System.out.println(resp);
 
+    }
+
+    @FXML
+    void onSending(){
+        app.openSendingUser();
     }
 
     public void setApp(App app) {
@@ -98,7 +103,6 @@ public class QuoteShippingViewController {
 
     @FXML
     void initialize() {
-
         this.controller= new QuoteShippingController(App.empresa);
         this.db = Database.getInstance();
 
@@ -109,5 +113,6 @@ public class QuoteShippingViewController {
 
         Platform.runLater(() -> lblTitle.requestFocus());
     }
+
 
 }

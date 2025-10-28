@@ -2,10 +2,7 @@ package co.edu.uniquindio.poo.proyectosameday;
 
 import co.edu.uniquindio.poo.proyectosameday.controller.PrimaryController;
 import co.edu.uniquindio.poo.proyectosameday.model.*;
-import co.edu.uniquindio.poo.proyectosameday.viewController.LoginUserViewController;
-import co.edu.uniquindio.poo.proyectosameday.viewController.PrimaryViewController;
-import co.edu.uniquindio.poo.proyectosameday.viewController.QuoteShippingViewController;
-import co.edu.uniquindio.poo.proyectosameday.viewController.RegisterUserViewController;
+import co.edu.uniquindio.poo.proyectosameday.viewController.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -29,7 +26,6 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         this.stage = stage;
-        inicializarData();
         openMainView();
     }
 
@@ -111,16 +107,25 @@ public class App extends Application {
         }
     }
 
-    public void inicializarData(){
-        Persona user1 = new Usuario("David","3015112641","dabeats0914@gmail.com","123");
-        Persona rp1= new Repartidor("Nico","3124579888","1234","1010", EstadoDisponibilidad.ACTIVO);
-        Administrador admin1 = new Administrador("789","Jorge Ivan Quintero","qwerty");
+    public void openSendingUser() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("sending-user.fxml"));
+            BorderPane rootLayout = (BorderPane) loader.load();
+            SendingUserViewController sendingUserViewController = loader.getController();
+            sendingUserViewController.setApp(this);
 
-        empresa.agregarPersona(user1);
-        empresa.agregarPersona(rp1);
-        empresa.agregarAdministrador(admin1);
-
+            Scene scene = new Scene(rootLayout);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("styles.css")).toExternalForm());
+            stage.setTitle("Registro en Proceso...");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
+
 
     public String getUser() {
         return user;

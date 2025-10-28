@@ -7,6 +7,7 @@ import java.util.UUID;
 
 
 public class Persona {
+
     private String id, nombre, telefono, contrasena;
 
     public Persona(String nombre, String telefono, String contrasena) {
