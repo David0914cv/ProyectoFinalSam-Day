@@ -45,6 +45,16 @@ public class EnvioSeguro extends EnvioDecorator {
     }
 
     @Override
+    public Repartidor getRepartidor() {
+        return super.getRepartidor();
+    }
+
+    @Override
+    public Usuario getUsuario() {
+        return super.getUsuario();
+    }
+
+    @Override
     public LocalDateTime getFechaCreacion() {
         return super.getFechaCreacion();
     }

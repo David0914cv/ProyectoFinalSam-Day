@@ -6,17 +6,9 @@ public class Repartidor extends Persona{
     private EstadoDisponibilidad estado;
 
     public Repartidor(String nombre, String telefono, String contrasena, String documento, EstadoDisponibilidad estado) {
-        super(nombre, telefono,Hash.hashear(contrasena));
+        super(documento,nombre, telefono,Hash.hashear(contrasena));
         this.documento = documento;
         this.estado = estado;
-    }
-
-    public String getDocumento() {
-        return documento;
-    }
-
-    public void setDocumento(String documento) {
-        this.documento = documento;
     }
 
     public EstadoDisponibilidad getEstado() {

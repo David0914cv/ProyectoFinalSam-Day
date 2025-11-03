@@ -12,6 +12,8 @@
             <VBox>
                 <Label styleClass="lblForm" text="Correo electrónico:" />
                 <TextField fx:id="emailField" promptText="Correo Electrónico" styleClass="form-input" />
+                <Label styleClass="lblForm" text="Documento:" />
+                <TextField fx:id="documentField" promptText="Documento" styleClass="form-input" />
                 <Label styleClass="lblForm" text="Nombre Completo:" />
                 <TextField fx:id="nameField" promptText="Nombre Completo" styleClass="form-input" />
                 <Label styleClass="lblForm" text="Número de teléfono:" />

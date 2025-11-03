@@ -8,13 +8,22 @@ import java.util.UUID;
 
 public class Persona {
 
-    private String id, nombre, telefono, contrasena;
+    private String id, nombre, telefono, contrasena,documento;
 
-    public Persona(String nombre, String telefono, String contrasena) {
+    public Persona( String documento,String nombre, String telefono, String contrasena) {
         this.id = UUID.randomUUID().toString();
+        this.documento = documento;
         this.nombre = nombre;
         this.telefono = telefono;
         this.contrasena = contrasena;
+    }
+
+    public String getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(String documento) {
+        this.documento = documento;
     }
 
     public String getId() {

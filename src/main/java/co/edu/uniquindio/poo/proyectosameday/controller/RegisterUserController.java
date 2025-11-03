@@ -12,17 +12,23 @@ public class RegisterUserController {
         this.empresa = empresa;
     }
 
-    public void SignUp(String email, String name, String cell, String password){
-        Persona user = new Usuario(name, cell, email, password);
+    public Persona SignUp(String email,String document, String name, String cell, String password){
+
+        if (empresa.getUsuario(document) != null || empresa.getAdministrador(document) != null) {
+            return null;
+        }
+
+        Persona user = new Usuario(name,document, cell, email, password);
 
         for (int i = 0; i < empresa.getListPersonas().size(); i++) {
             if (user.getId().equals(empresa.getListPersonas().get(i).getId())){
-                user = new Usuario(name, cell, email, password);
+                user = new Usuario(name,document, cell, email, password);
                 i=0;
             }
         }
 
         empresa.agregarPersona(user);
+        return user;
 
     }
 

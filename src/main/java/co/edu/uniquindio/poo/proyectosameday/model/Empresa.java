@@ -1,5 +1,7 @@
 package co.edu.uniquindio.poo.proyectosameday.model;
 
+import co.edu.uniquindio.poo.proyectosameday.model.dtos.AdministradorDTO;
+import co.edu.uniquindio.poo.proyectosameday.model.dtos.PersonaDTO;
 import co.edu.uniquindio.poo.proyectosameday.repository.Database;
 
 import java.util.ArrayList;
@@ -9,15 +11,19 @@ import java.util.Map;
 
 public class Empresa {
     private static Empresa empresa;
+    private Database database;
     private String nombre,nit;
     private List<Persona> listPersonas;
     private List<Administrador> listAdministradores ;
+    private List<EnvioComponent> listEnvios ;
 
     private Empresa(){
         this.nombre="Same-Day";
         this.nit="12345";
         this.listPersonas=new ArrayList<>();
         this.listAdministradores=new ArrayList<>();
+        this.listEnvios=new ArrayList<>();
+        this.database= Database.getInstance();
         cargarDatos();
     }
 
@@ -28,11 +34,17 @@ public class Empresa {
         return empresa;
     }
 
-    public void agregarAdministrador(Administrador administrador){
-        this.listAdministradores.add(administrador);
+    public void addEnvio(EnvioComponent envio){
+        this.listEnvios.add(envio);
+        this.database.addEnvio(envio);
     }
 
-    public Administrador getAministrador(String documento){
+    public void agregarAdministrador(Administrador administrador){
+        this.listAdministradores.add(administrador);
+        this.database.addAdministrador(administrador);
+    }
+
+    public Administrador getAdministrador(String documento){
         for(Administrador admin:this.listAdministradores){
             if ( admin.getDocumento().equals(documento)){
                 return admin;
@@ -43,79 +55,52 @@ public class Empresa {
 
     public void agregarPersona(Persona persona){
         this.listPersonas.add(persona);
+        this.database.addPersona(persona);
     }
 
-    public Persona getUsuario(String correo){
+    public Persona getUsuario(String documento){
         for(Persona persona:this.listPersonas){
-            if (persona.getClass() == Usuario.class){
-                if (((Usuario) persona).getCorreo().equals(correo)){
-                    return persona;
-                }
+            if (persona.getDocumento().equals(documento)){
+                return persona;
             }
         }
         return null;
     }
 
-    public Persona getRepartidor(String documento){
+    public Persona getUserId(String documento){
         for(Persona persona:this.listPersonas){
-            if (persona.getClass() == Repartidor.class){
-                if (((Repartidor) persona).getDocumento().equals(documento)){
-                    return persona;
-                }
+            if (persona.getId().equals(documento)){
+                return persona;
             }
         }
         return null;
     }
 
-    public Map<String,String> login(String tipo, String user, String contrasena){
-        Map<String,String> resp=new HashMap<>();
-        switch (tipo) {
-            case "Administrador" -> {
-                if (getAministrador(user) != null && getAministrador(user).getContrasena().equals(Hash.hashear(contrasena))) {
-                    resp.put("message","Login exitoso");
-                    resp.put("id",getAministrador(user).getDocumento());
-                    resp.put("user", getAministrador(user).getDocumento());
-                    resp.put("name", getAministrador(user).getNombre());
-                    return resp;
-                }
-                resp.put("message","Usuario o contraseña incorrecto");
-                return resp;
-            }
-            case "Usuario" -> {
-                Usuario user1 = (Usuario)(getUsuario(user));
-                if ( user1!=null && user1.getContrasena().equals(Hash.hashear(contrasena))) {
-                    resp.put("message","Login exitoso");
-                    resp.put("id",user1.getId());
-                    resp.put("user", user1.getCorreo());
-                    resp.put("name", user1.getNombre());
-                    return resp;
-                }
-                resp.put("message","Usuario o contraseña incorrecto");
-                return resp;
-            }
-            case "Repartidor" -> {
-                Repartidor rep = (Repartidor)(getRepartidor(user));
-                if (rep!= null && rep.getContrasena().equals(Hash.hashear(contrasena))) {
-                    resp.put("message","Login exitoso");
-                    resp.put("id",rep.getId());
-                    resp.put("user", rep.getDocumento());
-                    resp.put("name", rep.getNombre());
-                    return resp;
-                }
-                resp.put("message","Usuario o contraseña incorrecto");
-                return resp;
-            }
+    public PersonaDTO loginUser(String documento, String contrasena){
+
+        Persona user1 = getUsuario(documento);
+
+        if(user1.getClass() == Usuario.class){
+            return new PersonaDTO(user1.getId(),user1.getNombre(),"Usuario");
+        }
+        if(user1.getClass() == Repartidor.class){
+            return new PersonaDTO(user1.getId(),user1.getNombre(),"Repartidor");
         }
 
-        resp.put("message","Usuario o contraseña incorrecto");
-        return resp;
+        return null;
 
+    }
+
+    public AdministradorDTO loginAdministrador(String documento, String contrasena) {
+        if (getAdministrador(documento) != null && getAdministrador(documento).getContrasena().equals(Hash.hashear(contrasena))) {
+            return new AdministradorDTO(getAdministrador(documento).getDocumento(),getAdministrador(documento).getNombre());
+        }
+        return null;
     }
 
     public void cargarDatos(){
-        Database db=Database.getInstance();
-        this.listPersonas.addAll(db.getListPersonas());
-        this.listAdministradores.addAll(db.getListAdministradores());
+        this.listPersonas.addAll(database.getListPersonas());
+        this.listAdministradores.addAll(database.getListAdministradores());
     }
 
     public String getNombre() {
@@ -148,5 +133,13 @@ public class Empresa {
 
     public void setListAdministradores(List<Administrador> listAdministradores) {
         this.listAdministradores = listAdministradores;
+    }
+
+    public List<EnvioComponent> getListEnvios() {
+        return listEnvios;
+    }
+
+    public void setListEnvios(List<EnvioComponent> listEnvios) {
+        this.listEnvios = listEnvios;
     }
 }

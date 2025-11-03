@@ -9,15 +9,14 @@
 
             <Label styleClass="form-title" text="Iniciar Sesión" />
             <VBox>
-            <Label styleClass="lblForm" fx:id="userLabel" text="Correo electrónico:"/>
-            <TextField fx:id="userField" promptText="Correo electrónico" styleClass="form-input" />
+            <Label styleClass="lblForm" fx:id="userLabel" text="Documento:"/>
+            <TextField fx:id="userField" promptText="Documento" styleClass="form-input" />
             <Label styleClass="lblForm" text="Contraseña:"/>
             <PasswordField fx:id="passwordField" promptText="Contraseña" styleClass="form-input" />
 
             </VBox>
             <Button onAction="#onLogin" styleClass="primary-btn" text="Ingresar" />
             <Hyperlink onAction="#onRegister" text="¿Necesitas una cuenta? Registrarse" />
-            <Hyperlink fx:id="linkRol" onAction="#onLoginRepartidor" text="Iniciar Sesión como Repartidor" />
             <Hyperlink fx:id="linkRol2" onAction="#onLoginAdmin" text="Iniciar Sesión como Administrador" />
 
 

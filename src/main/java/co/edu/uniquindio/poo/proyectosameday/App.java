@@ -2,6 +2,8 @@ package co.edu.uniquindio.poo.proyectosameday;
 
 import co.edu.uniquindio.poo.proyectosameday.controller.PrimaryController;
 import co.edu.uniquindio.poo.proyectosameday.model.*;
+import co.edu.uniquindio.poo.proyectosameday.model.dtos.AdministradorDTO;
+import co.edu.uniquindio.poo.proyectosameday.model.dtos.PersonaDTO;
 import co.edu.uniquindio.poo.proyectosameday.viewController.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,9 +20,10 @@ public class App extends Application {
 
     public static Empresa empresa= Empresa.getInstance();
 
-    private String id =null;
-    private String user=null;
-    private String name=null;
+    private PersonaDTO persona =null;
+    private AdministradorDTO admin=null;
+    private Cotizacion cotizacion =null;
+
     private Stage stage;
 
     @Override
@@ -145,28 +148,28 @@ public class App extends Application {
         }
     }
 
-
-    public String getUser() {
-        return user;
+    public PersonaDTO getPersona() {
+        return persona;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setPersona(PersonaDTO persona) {
+        this.persona = persona;
     }
 
-    public String getName() {
-        return name;
+    public AdministradorDTO getAdmin() {
+        return admin;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAdmin(AdministradorDTO admin) {
+        this.admin = admin;
     }
 
-    public String getId() {
-        return id;
+    public Cotizacion getCotizacion() {
+        return cotizacion;
     }
-    public void setId(String id) {
-        this.id = id;
+
+    public void setCotizacion(Cotizacion cotizacion) {
+        this.cotizacion = cotizacion;
     }
 
     public static void main(String[] args) {

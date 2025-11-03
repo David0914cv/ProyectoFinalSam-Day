@@ -4,8 +4,8 @@ public class Usuario extends Persona {
 
     private String correo;
 
-    public Usuario(String nombre, String telefono, String correo,String contrasena) {
-        super(nombre, telefono,Hash.hashear(contrasena));
+    public Usuario(String nombre, String documento, String telefono, String correo,String contrasena) {
+        super(documento,nombre, telefono,Hash.hashear(contrasena));
         this.correo = correo;
     }
 
@@ -22,6 +22,7 @@ public class Usuario extends Persona {
         return "Usuario{\n" +
                 "id= "+ getId() + "\n" +
                 "correo= " + correo + '\n' +
+                "documento= " + getDocumento() + '\n' +
                 "nombre= "+ getNombre() + '\n' +
                 "telefono= "+ getTelefono() + '\n' +
                 "contraseña= "+getContrasena() + '\n' +

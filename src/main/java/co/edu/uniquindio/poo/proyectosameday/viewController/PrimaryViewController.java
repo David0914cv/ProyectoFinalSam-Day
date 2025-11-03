@@ -16,9 +16,6 @@ public class PrimaryViewController {
     App app;
 
     @FXML
-    private Label welcomeText;
-
-    @FXML
     private Button login;
 
     @FXML
@@ -32,8 +29,8 @@ public class PrimaryViewController {
         } else if (signUp.getText().equals("Cerrar Sesión")) {
             signUp.setText("Registrarse");
             login.setText("Iniciar sesión");
-            app.setName(null);
-            app.setUser(null);
+            app.setPersona(null);
+            app.setAdmin(null);
         }
     }
 
@@ -54,8 +51,8 @@ public class PrimaryViewController {
 
     public void setApp(App app) {
         this.app = app;
-        if (app.getName() != null) {
-            login.setText(app.getName());
+        if (app.getPersona() != null) {
+            login.setText(app.getPersona().getName());
             signUp.setText("Cerrar Sesión");
         }else{
             signUp.setText("Registrarse");

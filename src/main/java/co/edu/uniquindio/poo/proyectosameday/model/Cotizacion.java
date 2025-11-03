@@ -2,6 +2,8 @@ package co.edu.uniquindio.poo.proyectosameday.model;
 
 import jdk.swing.interop.SwingInterOpUtils;
 
+import java.time.LocalDateTime;
+
 public class Cotizacion {
     private String ciudadOrigen,ciudadDestino;
     private int peso;
@@ -369,7 +371,17 @@ public class Cotizacion {
         return 1000;
     }
 
+    public EnvioComponent createShipping(String type,String addressOrigin,String addressDestination,Usuario user){
+        LocalDateTime date = LocalDateTime.now();
 
+        if(date.getHour() >= 16){
+            date = date.plusDays(1).withHour(9).withMinute(0).withSecond(0).withNano(0);
+        }else{
+            date = date.plusHours(4);
+        }
+
+        return EnvioFactory.newInstance(type, this.ciudadOrigen, this.ciudadDestino,addressOrigin,addressDestination,EstadoEnvio.SOLICITADO, this.price,date,user);
+    }
 
     public String getCiudadOrigen() {
         return ciudadOrigen;

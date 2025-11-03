@@ -1,6 +1,9 @@
 package co.edu.uniquindio.poo.proyectosameday.controller;
 
+import co.edu.uniquindio.poo.proyectosameday.model.Administrador;
 import co.edu.uniquindio.poo.proyectosameday.model.Empresa;
+import co.edu.uniquindio.poo.proyectosameday.model.dtos.AdministradorDTO;
+import co.edu.uniquindio.poo.proyectosameday.model.dtos.PersonaDTO;
 
 import java.util.Map;
 
@@ -11,7 +14,11 @@ public class LoginUserController {
         this.empresa = empresa;
     }
 
-    public Map<String, String> login(String user, String email, String password) {
-        return empresa.login(user, email, password);
+    public PersonaDTO loginUser(String documento, String password) {
+        return empresa.loginUser(documento, password);
+    }
+
+    public AdministradorDTO loginAdmin(String documento, String password) {
+        return empresa.loginAdministrador(documento, password);
     }
 }

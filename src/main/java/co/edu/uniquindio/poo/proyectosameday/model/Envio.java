@@ -2,16 +2,18 @@ package co.edu.uniquindio.poo.proyectosameday.model;
 
 import java.time.LocalDateTime;
 
-public class Envio implements EnvioComponent{
+public class Envio implements EnvioComponent {
 
-    private String ciudadOrigen,ciudadDestino, direccionOrigen, direccionDestino;
+    private String ciudadOrigen, ciudadDestino, direccionOrigen, direccionDestino;
     private EstadoEnvio estado;
     private Paquete paquete;
     private double price;
-    private LocalDateTime fechaCreacion,fechaEntrega;
+    private LocalDateTime fechaCreacion, fechaEntrega;
+    private Usuario usuario;
+    private Repartidor repartidor;
 
     public Envio(String ciudadOrigen, String ciudadDestino, String direccionOrigen, String direccionDestino, EstadoEnvio estado, double price,
-                 LocalDateTime fechaCreacion, LocalDateTime fechaEntrega) {
+                 LocalDateTime fechaCreacion, LocalDateTime fechaEntrega, Usuario usuario) {
 
         this.ciudadOrigen = ciudadOrigen;
         this.ciudadDestino = ciudadDestino;
@@ -21,7 +23,7 @@ public class Envio implements EnvioComponent{
         this.price = price;
         this.fechaCreacion = fechaCreacion;
         this.fechaEntrega = fechaEntrega;
-
+        this.usuario = usuario;
     }
 
 
@@ -71,9 +73,30 @@ public class Envio implements EnvioComponent{
     }
 
     @Override
+    public Repartidor getRepartidor() {
+        return this.repartidor;
+    }
+
+    @Override
+    public Usuario getUsuario() {
+        return this.usuario;
+    }
+
+    @Override
+    public void setRepartidor(Repartidor repartidor) {
+        this.repartidor = repartidor;
+    }
+
+    @Override
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    @Override
     public void setPrice(double price) {
         this.price = price;
     }
+
 
     public void setCiudadOrigen(String ciudadOrigen) {
         this.ciudadOrigen = ciudadOrigen;

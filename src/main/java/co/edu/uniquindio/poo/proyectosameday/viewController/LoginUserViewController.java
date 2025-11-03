@@ -2,6 +2,8 @@ package co.edu.uniquindio.poo.proyectosameday.viewController;
 
 import co.edu.uniquindio.poo.proyectosameday.App;
 import co.edu.uniquindio.poo.proyectosameday.controller.LoginUserController;
+import co.edu.uniquindio.poo.proyectosameday.model.dtos.AdministradorDTO;
+import co.edu.uniquindio.poo.proyectosameday.model.dtos.PersonaDTO;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Modality;
@@ -25,9 +27,6 @@ public class LoginUserViewController {
     private PasswordField passwordField;
 
     @FXML
-    private Hyperlink linkRol;
-
-    @FXML
     private Hyperlink linkRol2;
 
     @FXML
@@ -36,23 +35,32 @@ public class LoginUserViewController {
         String user = userField.getText();
         String password = passwordField.getText();
 
-        Map<String,String> resp =controller.login(this.rol, user, password);
 
-        if (resp.get("message").equals("Login exitoso")){
-            app.setId(resp.get("id"));
-            app.setUser(resp.get("user"));
-            app.setName(resp.get("name"));
-            if (rol.equals("Administrador")){
-                app.openAdmin();
-                return;
+
+        if (rol.equalsIgnoreCase("Usuario")){
+            PersonaDTO resp =controller.loginUser(user, password);
+            if (resp!=null){
+                app.setPersona(resp);
+                if (app.getCotizacion() != null){
+                    app.openSendingUser();
+                    return;
+                }
+                app.openMainView();
+            }else {
+                MethodsRecycle.showAlert("Erros","Usuario o contraseña incorrecta",Alert.AlertType.ERROR);
             }
-            app.openMainView();
-
-        }else{
-            MethodsRecycle.showAlert("Error",resp.get("message"), Alert.AlertType.ERROR);
-            System.out.println(resp.get("message"));
         }
-        System.out.println("hola =" +resp);
+
+        if (rol.equalsIgnoreCase("Administrador")){
+            AdministradorDTO resp =controller.loginAdmin(user, password);
+            if (resp!=null){
+                app.setAdmin(resp);
+                app.openAdmin();
+            } else {
+                MethodsRecycle.showAlert("Erros","Usuario o contraseña incorrecta",Alert.AlertType.ERROR);
+            }
+        }
+
     }
 
     @FXML
@@ -61,34 +69,13 @@ public class LoginUserViewController {
     }
 
     @FXML
-    void onLoginRepartidor(){
-        if (rol.equals("Usuario")){
-            this.rol="Repartidor";
-            userField.setPromptText("Documento:");
-            userLabel.setText("Documento:");
-            linkRol.setText("Iniciar Sesión como Cliente");
-        }
-        else if (rol.equals("Repartidor")){
-            this.rol="Usuario";
-            userField.setPromptText("Correo electrónico:");
-            userLabel.setText("Correo electrónico:");
-            linkRol.setText("Iniciar Sesión como Repartidor");
-        }
-
-    }
-
-    @FXML
     void onLoginAdmin(){
         if (rol.equals("Usuario")){
             this.rol="Administrador";
-            userField.setPromptText("Documento:");
-            userLabel.setText("Documento:");
-            linkRol.setText("Iniciar Sesión como Cliente");
+            linkRol2.setText("Iniciar Sesión como Usuario");
         }
         else if (rol.equals("Administrador")){
             this.rol="Usuario";
-            userField.setPromptText("Correo electrónico:");
-            userLabel.setText("Correo electrónico:");
             linkRol2.setText("Iniciar Sesión como Administrador");
         }
     }

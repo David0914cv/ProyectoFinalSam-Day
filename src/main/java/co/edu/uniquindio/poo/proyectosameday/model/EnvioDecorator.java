@@ -57,6 +57,26 @@ public abstract class EnvioDecorator implements  EnvioComponent {
     }
 
     @Override
+    public Repartidor getRepartidor() {
+        return envio.getRepartidor();
+    }
+
+    @Override
+    public Usuario getUsuario() {
+        return envio.getUsuario();
+    }
+
+    @Override
+    public void setRepartidor(Repartidor repartidor) {
+        envio.setRepartidor(repartidor);
+    }
+
+    @Override
+    public void setUsuario(Usuario usuario) {
+        envio.setUsuario(usuario);
+    }
+
+    @Override
     public void setPrice(double price) {
         envio.setPrice(price);
     }

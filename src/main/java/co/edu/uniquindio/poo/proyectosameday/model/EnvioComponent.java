@@ -14,4 +14,8 @@ public interface EnvioComponent {
     public LocalDateTime getFechaCreacion();
     public LocalDateTime getFechaEntrega();
     public void setPrice(double price);
+    public Usuario getUsuario();
+    public void setUsuario(Usuario usuario);
+    public Repartidor getRepartidor();
+    public void setRepartidor(Repartidor repartidor);
 }
