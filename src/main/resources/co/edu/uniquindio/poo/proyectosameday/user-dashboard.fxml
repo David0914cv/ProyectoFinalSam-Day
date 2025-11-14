@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.poo.proyectosameday.viewController.UserDashboardViewController"
+            prefHeight="400.0" prefWidth="600.0" styleClass="contentFormProfile">
+
+    <!-- Barra superior -->
+    <top>
+        <HBox spacing="20" alignment="CENTER_LEFT" styleClass="dashboard-header">
+            <Label text="👤 Perfil de Usuario" styleClass="dashboard-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Cerrar sesión" onAction="#onLogout" styleClass="secondary-btn"/>
+        </HBox>
+    </top>
+
+    <!-- Barra lateral -->
+    <left>
+        <VBox spacing="15" styleClass="sidebar" prefWidth="220" alignment="TOP_CENTER">
+            <Button text="Actualizar Información" onAction="#onMostrarActualizar" styleClass="nav-btn2"/>
+            <Button text="Mis Envíos" onAction="#onMostrarEnvios" styleClass="nav-btn2"/>
+        </VBox>
+    </left>
+
+    <!-- Contenido dinámico -->
+    <center>
+        <StackPane fx:id="contenidoContainer" styleClass="dashboard-content">
+            <Label text="Selecciona una opción del menú lateral" styleClass="lblForm"/>
+        </StackPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.poo.proyectosameday.viewController.TableUsersViewController"
+            styleClass="dashboard-content">
+
+    <!-- Título -->
+    <top>
+        <Label text="Gestión de Usuarios" styleClass="section-title">
+            <padding><Insets top="10" bottom="20" /></padding>
+        </Label>
+    </top>
+
+    <!-- Contenido principal -->
+    <center>
+        <VBox spacing="20">
+
+            <!-- Tabla -->
+            <TableView fx:id="tablaUsuarios" prefHeight="400" styleClass="table-view">
+
+                <columns>
+                    <TableColumn text="Documento" prefWidth="125" fx:id="colId"/>
+                    <TableColumn text="Nombre" prefWidth="200" fx:id="colNombre"/>
+                    <TableColumn text="Correo" prefWidth="225" fx:id="colCorreo"/>
+                    <TableColumn text="Teléfono" prefWidth="175" fx:id="colTelefono"/>
+                    <TableColumn text="Editar" prefWidth="215" fx:id="colUpdate"/>
+                    <TableColumn text="Eliminar" prefWidth="215" fx:id="colDelete"/>
+                </columns>
+            </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>

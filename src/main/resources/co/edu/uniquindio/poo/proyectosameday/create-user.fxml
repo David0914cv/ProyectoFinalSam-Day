@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="co.edu.uniquindio.poo.proyectosameday.viewController.CreateUserViewController"
+      spacing="15"
+      alignment="CENTER"
+      styleClass="form-container">
+
+    <padding>
+        <Insets top="30" right="40" bottom="30" left="40"/>
+    </padding>
+
+    <!-- 🧩 Título -->
+    <Label text="Crear Usuario" styleClass="section-title"/>
+
+    <!-- 📝 Campos del formulario -->
+    <VBox spacing="12" alignment="CENTER_LEFT" styleClass="form-box-create">
+
+        <Label text="Numero de documento:" styleClass="lblForm"/>
+        <TextField fx:id="txtDocumento" styleClass="text-field" promptText="Ingrese el numero de documento"/>
+
+        <Label text="Nombre completo:" styleClass="lblForm"/>
+        <TextField fx:id="txtNombre" styleClass="text-field" promptText="Ingrese el nombre"/>
+
+        <Label text="Correo electrónico:" styleClass="lblForm"/>
+        <TextField fx:id="txtCorreo" styleClass="text-field" promptText="ejemplo@correo.com"/>
+
+        <Label text="Número de teléfono:" styleClass="lblForm"/>
+        <TextField fx:id="txtTelefono" styleClass="text-field" promptText="Teléfono"/>
+
+        <Label text="Contraseña:" styleClass="lblForm"/>
+        <PasswordField fx:id="txtPassword" styleClass="text-field" promptText="Contraseña del usuario"/>
+
+
+    </VBox>
+
+    <!-- ✔️ Botones -->
+    <HBox spacing="15" alignment="CENTER">
+        <Button text="Crear Usuario" onAction="#onCrearUsuario" styleClass="primary-btn"/>
+    </HBox>
+
+</VBox>

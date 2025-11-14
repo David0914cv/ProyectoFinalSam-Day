@@ -47,14 +47,25 @@ public class SendingUserViewController {
             typeSending = "seguro";
         } else if (choiceBoxTypeSending.getValue().equalsIgnoreCase("Envio con entrega prioritaria")) {
             typeSending = "prioritario";
+        }else if (choiceBoxTypeSending.getValue().equalsIgnoreCase("Envio con firma requerida")) {
+            typeSending = "firma requerida";
+        }else if (choiceBoxTypeSending.getValue().equalsIgnoreCase("Envio con precaucion Fragil")) {
+            typeSending = "fragil";
         }else {
             MethodsRecycle.showAlert("Advertencia","Debe Seleccionar el tipo de envío", Alert.AlertType.WARNING);
             return;
         }
 
         EnvioComponent resp = controller.createSendingUser(typeSending,app.getCotizacion(),origin,destination, app.getPersona());
-        MethodsRecycle.showAlert("Exitoso!","Se ha generado el envio correctamente, Se notificará Cuando se asigne al repartidor\nSe entregara aproximadamente en la fecha "+ resp.getFechaEntrega(), Alert.AlertType.INFORMATION);
-        app.openMainView();
+        if(resp == null){
+            MethodsRecycle.showAlert("Error","Hubo un error al crear el envio, vuelva a intentarlo",Alert.AlertType.ERROR);
+        }else {
+            if (MethodsRecycle.showAlertCondicion("Confirmación","¿Estas seguro?","El envio tendra el siguiente precio $"+resp.getPrice())){
+                app.setEnvioComponent(resp);
+                app.openPaymentMethod();
+            }
+        }
+
     }
 
     public void setApp(App app) {

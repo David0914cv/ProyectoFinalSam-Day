@@ -40,7 +40,7 @@ public class RegisterUserViewController {
         String password = passwordField.getText();
 
         if (email.isEmpty() || name.isEmpty() || cell.isEmpty() || password.isEmpty()) {
-            MethodsRecycle.showAlert("Error","Debe llenar todos los campos del formulario", Alert.AlertType.ERROR);
+            MethodsRecycle.showAlert("Advertencia","Debe llenar todos los campos del formulario", Alert.AlertType.WARNING);
             return;
         }
 
@@ -55,7 +55,7 @@ public class RegisterUserViewController {
             MethodsRecycle.showAlert("Registro exitoso!","Se ha registrado con exito en el sistema",Alert.AlertType.INFORMATION);
             app.openLogin();
         }else{
-            MethodsRecycle.showAlert("Error","Usuario ya existe",Alert.AlertType.ERROR);
+            MethodsRecycle.showAlert("Advertencia","Usuario ya existe",Alert.AlertType.WARNING);
         }
 
 

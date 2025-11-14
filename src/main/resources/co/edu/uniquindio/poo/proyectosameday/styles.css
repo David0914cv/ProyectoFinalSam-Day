@@ -97,7 +97,15 @@
 }
 
 .contentForm{
-    -fx-padding: 30 150;
+    -fx-padding: 50 400;
+    -fx-background-image: url("https://img.freepik.com/fotos-premium/cajas-carton-dispuestas-alrededor-pared-azul-brillante-almacen-horas-luz-dia_124717-15386.jpg?semt=ais_hybrid&w=740&q=80");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+
+.contentFormProfile{
+    -fx-padding: 50 350;
     -fx-background-image: url("https://img.freepik.com/fotos-premium/cajas-carton-dispuestas-alrededor-pared-azul-brillante-almacen-horas-luz-dia_124717-15386.jpg?semt=ais_hybrid&w=740&q=80");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
@@ -106,8 +114,28 @@
 
 .form-box {
     -fx-background-color: white;
-    -fx-padding: 25px;
-    -fx-spacing: 15;
+    -fx-padding: 25px 100px;
+    -fx-spacing: 60;
+    -fx-background-radius: 12;
+    -fx-alignment: center;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0.2, 0, 2);
+}
+
+.form-box-create {
+    -fx-background-color: white;
+    -fx-padding: 25px 200px;
+    -fx-background-radius: 12;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0.2, 0, 2);
+}
+
+.form-box-register{
+    -fx-background-color: white;
+    -fx-padding: 25px 100px;
+    -fx-spacing: 35;
     -fx-background-radius: 12;
     -fx-alignment: center;
     -fx-border-color: #ddd;
@@ -153,3 +181,270 @@
     -fx-font-weight: bold;
 }
 
+.payment-container {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 20;
+    -fx-min-height: 200;
+    -fx-alignment: center;
+}
+
+
+.payment-box {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+}
+
+.sub-form {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+}
+
+.secondary-btn {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #333;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 18px;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1;
+}
+
+.secondary-btn:hover {
+    -fx-background-color: #d6d6d6;
+}
+
+.secondary-btn:pressed {
+    -fx-background-color: #c2c2c2;
+}
+
+.icon-btn {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 5;
+}
+
+.icon-btn:hover {
+    -fx-background-color: rgba(0,0,0,0.05);
+    -fx-background-radius: 8;
+}
+
+/************/
+
+.dashboard-header {
+    -fx-background-color: #1976d2;
+    -fx-padding: 10 20;
+}
+
+.dashboard-title {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.sidebar {
+    -fx-background-color: #f5f5f5;
+    -fx-padding: 15;
+    -fx-border-width: 0 1 0 0;
+    -fx-border-color: #ddd;
+}
+
+.nav-btn2 {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #333;
+    -fx-background-radius: 8;
+    -fx-padding: 8 15;
+    -fx-pref-width: 180;
+}
+
+.nav-btn2:hover {
+    -fx-background-color: #c5cae9;
+    -fx-cursor: hand;
+}
+
+.dashboard-content {
+    -fx-background-color: white;
+    -fx-padding: 30;
+}
+
+.section-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 10 0 15 0;
+    -fx-alignment: center;
+    -fx-underline: true;
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+}
+
+/* 🔹 DASHBOARD ADMIN */
+
+.dashboard-root {
+    -fx-background-color: #f4f6f8;
+}
+
+/* 🔸 Navbar superior */
+.logout-btn {
+    -fx-background-color: #E53935;
+    -fx-text-fill: white;
+    -fx-padding: 6 16;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.logout-btn:hover {
+    -fx-background-color: #B71C1C;
+}
+
+/* 🔸 Sidebar lateral */
+.sidebar {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #ddd;
+    -fx-border-width: 0 1 0 0;
+    -fx-padding: 15;
+}
+
+.sidebar-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1E88E5;
+    -fx-padding: 0 0 15 0;
+}
+
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #333;
+    -fx-alignment: center-left;
+    -fx-padding: 10 15;
+    -fx-background-radius: 6;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.sidebar-btn:hover {
+    -fx-background-color: #E3F2FD;
+}
+
+/* 🔸 Área central de contenido */
+.content-area {
+    -fx-background-color: #fafafa;
+    -fx-padding: 30;
+    -fx-alignment: center;
+}
+
+.welcome-text {
+    -fx-font-size: 18px;
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+.sidebar-sub-btn {
+    -fx-background-color: #eeeeee;
+    -fx-text-fill: #444;
+    -fx-padding: 6 12;
+    -fx-background-radius: 6;
+    -fx-pref-width: 160;
+}
+
+.sidebar-sub-btn:hover {
+    -fx-background-color: #d0d0d0;
+    -fx-cursor: hand;
+}
+
+.submenu {
+    -fx-padding: 0 0 0 10;
+}
+
+/* Contenedor de la modal (root VBox) */
+.modal-box {
+    -fx-background-color: white;
+    -fx-padding: 20 24;
+    -fx-spacing: 12;
+    -fx-alignment: center;
+    -fx-background-radius: 10;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0.25, 0, 2);
+    -fx-pref-width: 420px; /* ajuste según necesites */
+}
+
+/* Título de la modal */
+.modal-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1E88E5;
+    -fx-padding: 4 0 10 0;
+}
+
+/* Inputs dentro de la modal */
+.modal-box .text-field,
+.modal-box .password-field {
+    -fx-pref-width: 340px;
+    -fx-pref-height: 36px;
+    -fx-padding: 0 10;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1;
+}
+
+/* Footer (contenedor de botones) */
+.modal-footer {
+    -fx-spacing: 10;
+    -fx-alignment: center;
+    -fx-padding: 8 0 0 0;
+}
+
+/* Reusar estilos ya definidos para botones:
+   primary-btn y secondary-btn (ya los tienes),
+   pero aquí pequeño ajuste para tamaño dentro de la modal */
+.modal-box .primary-btn {
+    -fx-padding: 8 18;
+    -fx-font-size: 13px;
+}
+
+.modal-box .secondary-btn {
+    -fx-padding: 8 14;
+    -fx-font-size: 13px;
+}
+
+/* Mensajes/errores dentro de la modal */
+.modal-error {
+    -fx-text-fill: #E53935;
+    -fx-font-size: 12px;
+    -fx-padding: 4 0 0 0;
+}
+
+/* Opcional: input focus */
+.modal-box .text-field:focused,
+.modal-box .password-field:focused {
+    -fx-border-color: #1E88E5;
+    -fx-effect: none;
+}
+
+.form-container {
+    -fx-background-color: white;
+    -fx-padding: 40;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: #ddd;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0.2, 0, 2);
+}
+
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 12;
+    -fx-table-cell-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 6, 0.1, 0, 2);
+}

@@ -18,6 +18,9 @@ public class LoginUserViewController {
     private String rol="Usuario";
 
     @FXML
+    private Label lblTitle;
+
+    @FXML
     private Label userLabel;
 
     @FXML
@@ -35,7 +38,10 @@ public class LoginUserViewController {
         String user = userField.getText();
         String password = passwordField.getText();
 
-
+        if(user.isEmpty() || password.isEmpty()){
+            MethodsRecycle.showAlert("Advertencia","Debe rellenar todos los campos",Alert.AlertType.WARNING);
+            return;
+        }
 
         if (rol.equalsIgnoreCase("Usuario")){
             PersonaDTO resp =controller.loginUser(user, password);
@@ -72,10 +78,12 @@ public class LoginUserViewController {
     void onLoginAdmin(){
         if (rol.equals("Usuario")){
             this.rol="Administrador";
+            lblTitle.setText("Iniciar sesión como Administrador");
             linkRol2.setText("Iniciar Sesión como Usuario");
         }
         else if (rol.equals("Administrador")){
             this.rol="Usuario";
+            lblTitle.setText("Iniciar sesión");
             linkRol2.setText("Iniciar Sesión como Administrador");
         }
     }
@@ -92,5 +100,6 @@ public class LoginUserViewController {
     @FXML
     void initialize() {
         this.controller = new LoginUserController(App.empresa);
+        lblTitle.setText("Iniciar sesión");
     }
 }

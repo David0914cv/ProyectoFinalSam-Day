@@ -2,9 +2,8 @@ package co.edu.uniquindio.poo.proyectosameday.model;
 
 import java.time.LocalDateTime;
 
-public class EnvioSeguro extends EnvioDecorator {
-
-    public EnvioSeguro(Envio envio) {
+public class EnvioFragil extends EnvioDecorator{
+    public EnvioFragil(Envio envio) {
         super(envio);
     }
 
@@ -45,7 +44,7 @@ public class EnvioSeguro extends EnvioDecorator {
 
     @Override
     public double getPrice() {
-        setPrice(super.getPrice()+2000);
+        setPrice(super.getPrice()+1500);
         return super.getPrice();
     }
 

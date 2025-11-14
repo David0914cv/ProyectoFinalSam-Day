@@ -5,22 +5,24 @@
 
 <BorderPane styleClass="contentForm" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectosameday.viewController.LoginUserViewController">
     <center>
-        <VBox prefHeight="461.0" prefWidth="412.0" styleClass="form-box">
-
-            <Label styleClass="form-title" text="Iniciar Sesión" />
+        <VBox styleClass="form-box">
+            <Label styleClass="form-title" fx:id="lblTitle"/>
             <VBox>
-            <Label styleClass="lblForm" fx:id="userLabel" text="Documento:"/>
+            <Label fx:id="userLabel" styleClass="lblForm" text="Documento:" />
             <TextField fx:id="userField" promptText="Documento" styleClass="form-input" />
-            <Label styleClass="lblForm" text="Contraseña:"/>
+            <Label styleClass="lblForm" text="Contraseña:" />
             <PasswordField fx:id="passwordField" promptText="Contraseña" styleClass="form-input" />
 
             </VBox>
             <Button onAction="#onLogin" styleClass="primary-btn" text="Ingresar" />
-            <Hyperlink onAction="#onRegister" text="¿Necesitas una cuenta? Registrarse" />
-            <Hyperlink fx:id="linkRol2" onAction="#onLoginAdmin" text="Iniciar Sesión como Administrador" />
+            <VBox alignment="CENTER" spacing="5">
+                <Hyperlink onAction="#onRegister" text="¿Necesitas una cuenta? Registrarse" />
+                <Hyperlink fx:id="linkRol2" onAction="#onLoginAdmin" text="Iniciar Sesión como Administrador" />
 
 
-            <Hyperlink onAction="#onBack" text="Volver a la pantalla principal" />
+                <Hyperlink onAction="#onBack" text="Volver a la pantalla principal" />
+            </VBox>
+
         </VBox>
     </center>
 </BorderPane>

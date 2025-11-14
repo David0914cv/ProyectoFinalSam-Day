@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.proyectosameday.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public abstract class EnvioDecorator implements  EnvioComponent {
 
@@ -10,6 +11,10 @@ public abstract class EnvioDecorator implements  EnvioComponent {
         this.envio = envio;
     }
 
+    @Override
+    public String getId() {
+        return envio.getId();
+    }
 
     @Override
     public String getCiudadOrigen() {
@@ -79,5 +84,10 @@ public abstract class EnvioDecorator implements  EnvioComponent {
     @Override
     public void setPrice(double price) {
         envio.setPrice(price);
+    }
+
+    @Override
+    public String getFechaEntregaFormateada() {
+        return envio.getFechaEntregaFormateada();
     }
 }

@@ -7,6 +7,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class MethodsRecycle {
@@ -103,5 +104,23 @@ public class MethodsRecycle {
                 suggestions.hide();
             }
         });
+    }
+
+    public static boolean showAlertCondicion(String title, String header,String message) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(message);
+
+        // Personalizar los botones
+        ButtonType botonSi = new ButtonType("Sí");
+        ButtonType botonNo = new ButtonType("No");
+        alert.getButtonTypes().setAll(botonSi, botonNo);
+
+        // Mostrar la alerta y esperar respuesta
+        Optional<ButtonType> resultado = alert.showAndWait();
+
+        return resultado.isPresent() && resultado.get() == botonSi;
+
     }
 }

@@ -1,10 +1,12 @@
 package co.edu.uniquindio.poo.proyectosameday.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 public class Envio implements EnvioComponent {
 
-    private String ciudadOrigen, ciudadDestino, direccionOrigen, direccionDestino;
+    private String id, ciudadOrigen, ciudadDestino, direccionOrigen, direccionDestino;
     private EstadoEnvio estado;
     private Paquete paquete;
     private double price;
@@ -14,7 +16,7 @@ public class Envio implements EnvioComponent {
 
     public Envio(String ciudadOrigen, String ciudadDestino, String direccionOrigen, String direccionDestino, EstadoEnvio estado, double price,
                  LocalDateTime fechaCreacion, LocalDateTime fechaEntrega, Usuario usuario) {
-
+        this.id = UUID.randomUUID().toString();
         this.ciudadOrigen = ciudadOrigen;
         this.ciudadDestino = ciudadDestino;
         this.direccionOrigen = direccionOrigen;
@@ -26,6 +28,12 @@ public class Envio implements EnvioComponent {
         this.usuario = usuario;
     }
 
+
+
+    @Override
+    public String getId() {
+        return this.id;
+    }
 
     @Override
     public String getCiudadOrigen() {
@@ -70,6 +78,13 @@ public class Envio implements EnvioComponent {
     @Override
     public LocalDateTime getFechaEntrega() {
         return this.fechaEntrega;
+    }
+
+    @Override
+    public String getFechaEntregaFormateada() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+        return this.fechaEntrega.format(formatter);
     }
 
     @Override
@@ -128,5 +143,22 @@ public class Envio implements EnvioComponent {
 
     public void setFechaEntrega(LocalDateTime fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
+    }
+
+    @Override
+    public String toString() {
+        return "Envio{" +
+                "ciudadOrigen='" + ciudadOrigen + '\'' +
+                ", ciudadDestino='" + ciudadDestino + '\'' +
+                ", direccionOrigen='" + direccionOrigen + '\'' +
+                ", direccionDestino='" + direccionDestino + '\'' +
+                ", estado=" + estado +
+                ", paquete=" + paquete +
+                ", price=" + price +
+                ", fechaCreacion=" + fechaCreacion +
+                ", fechaEntrega=" + fechaEntrega +
+                ", usuario=" + usuario +
+                ", repartidor=" + repartidor +
+                '}';
     }
 }

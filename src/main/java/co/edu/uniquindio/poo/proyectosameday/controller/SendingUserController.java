@@ -14,12 +14,9 @@ public class SendingUserController {
     }
 
     public EnvioComponent createSendingUser(String type, Cotizacion cotizacion, String addressOrigin, String addressDestination, PersonaDTO user){
-        Persona resp = empresa.getUserId(user.getId());
+        Usuario resp = empresa.getUserId(user.getId());
 
-        EnvioComponent envio = cotizacion.createShipping(type,addressOrigin,addressDestination,(Usuario) resp);
-        empresa.addEnvio(envio);
-
-        return envio;
+        return cotizacion.createShipping(type,addressOrigin,addressDestination, resp);
     }
 
 }

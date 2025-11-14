@@ -10,10 +10,12 @@
             <HBox spacing="20" styleClass="navbar">
                 <Label styleClass="logo" text="Same-Day" />
                 <HBox alignment="CENTER_RIGHT" spacing="15" HBox.hgrow="ALWAYS">
+                    <Button fx:id="btnNotifications" styleClass="icon-btn" text="🔔" />
                     <Button fx:id="login" onAction="#onOpenSignIn" styleClass="nav-btn" text="Iniciar sesión" />
                     <Button onAction="#onOpenQuote" styleClass="nav-btn" text="Cotizar Envíos" />
                     <Button fx:id="signUp" onAction="#onOpenSignUp" styleClass="nav-btn" text="Registrarse" />
                 </HBox>
+
             </HBox>
         </top>
 

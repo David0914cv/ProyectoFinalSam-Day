@@ -11,6 +11,10 @@ public class EnvioFactory {
             return new EnvioEntregaPrioritaria(envio);
         }else if (type.equalsIgnoreCase("seguro")){
             return  new EnvioSeguro(envio);
+        }else if (type.equalsIgnoreCase("fragil")){
+            return  new EnvioFragil(envio);
+        }else if (type.equalsIgnoreCase("firma requerida")){
+            return  new EnvioFirmaRequerida(envio);
         }else if (type.equalsIgnoreCase("normal")){
             return envio;
         }else{
