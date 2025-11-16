@@ -194,6 +194,25 @@ public class App extends Application {
         }
     }
 
+    public void openDealerDashboard() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(App.class.getResource("dealer-dashboard.fxml"));
+            BorderPane rootLayout = (BorderPane) loader.load();
+            DealerDashboardViewController dealerDashboardViewController = loader.getController();
+            dealerDashboardViewController.setApp(this);
+
+            Scene scene = new Scene(rootLayout);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("styles.css")).toExternalForm());
+            stage.setTitle("Vista repartidor");
+            stage.setScene(scene);
+            ajustarPantallaCompleta(stage,rootLayout);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
     public static void ajustarPantallaCompleta(Stage stage, BorderPane root) {
 
         stage.setResizable(true);

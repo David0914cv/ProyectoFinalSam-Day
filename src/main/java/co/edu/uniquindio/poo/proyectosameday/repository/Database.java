@@ -46,6 +46,15 @@ public class Database {
         return null;
     }
 
+    public Administrador getAdminId(String document){
+        for(Administrador admin:this.listAdministradores){
+            if (admin.getDocumento().equals(document)){
+                return admin;
+            }
+        }
+        return null;
+    }
+
     public Usuario getUserDocument(String documento){
         for(Persona persona:this.listPersonas){
             if (persona.getDocumento().equals(documento)){

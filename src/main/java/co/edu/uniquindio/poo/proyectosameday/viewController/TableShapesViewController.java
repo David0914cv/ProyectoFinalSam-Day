@@ -77,7 +77,7 @@ public class TableShapesViewController {
         colFecha.setCellValueFactory(new PropertyValueFactory<>("fechaEntregaFormateada"));
         colEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
         colPrecio.setCellValueFactory(new PropertyValueFactory<>("price"));
-
+        System.out.println("holiii"+db.getListShapesState(app.getPersona().getId()));
         tablaEnvios.setItems(FXCollections.observableArrayList(db.getListEnviosUser(app.getPersona().getId())));
 
         tablaEnvios.getSelectionModel().selectedItemProperty().addListener((obs, oldSel, newSel) -> {
@@ -127,7 +127,7 @@ public class TableShapesViewController {
             doc.close();
 
             // 🔔 Mostrar alerta de éxito
-            MethodsRecycle.showAlert("PDF generado","El comprobante se ha guardado correctamente.",Alert.AlertType.INFORMATION);
+            MethodsRecycle.showAlert("PDF generado","El comprobante se ha guardado correctamente en la ruta "+route,Alert.AlertType.INFORMATION);
 
         } catch (Exception e) {
             e.printStackTrace();

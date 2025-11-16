@@ -2,8 +2,10 @@ package co.edu.uniquindio.poo.proyectosameday.viewController;
 
 import co.edu.uniquindio.poo.proyectosameday.App;
 import co.edu.uniquindio.poo.proyectosameday.controller.LoginUserController;
+import co.edu.uniquindio.poo.proyectosameday.model.Persona;
 import co.edu.uniquindio.poo.proyectosameday.model.dtos.AdministradorDTO;
 import co.edu.uniquindio.poo.proyectosameday.model.dtos.PersonaDTO;
+import co.edu.uniquindio.poo.proyectosameday.repository.Database;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Modality;
@@ -13,6 +15,7 @@ import java.util.Map;
 
 public class LoginUserViewController {
     App app;
+    Database db;
 
     LoginUserController controller;
     private String rol="Usuario";
@@ -51,7 +54,14 @@ public class LoginUserViewController {
                     app.openSendingUser();
                     return;
                 }
-                app.openMainView();
+                Persona respUser = db.getUserId(resp.getId());
+                if (respUser!=null){
+                    app.openMainView();
+                    return;
+                }
+
+                app.openDealerDashboard();
+
             }else {
                 MethodsRecycle.showAlert("Erros","Usuario o contraseña incorrecta",Alert.AlertType.ERROR);
             }
@@ -100,6 +110,7 @@ public class LoginUserViewController {
     @FXML
     void initialize() {
         this.controller = new LoginUserController(App.empresa);
+        this.db=Database.getInstance();
         lblTitle.setText("Iniciar sesión");
     }
 }

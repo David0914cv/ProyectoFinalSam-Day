@@ -98,8 +98,9 @@ public class Envio implements EnvioComponent {
     }
 
     @Override
-    public void setRepartidor(Repartidor repartidor) {
+    public EnvioComponent setRepartidor(Repartidor repartidor) {
         this.repartidor = repartidor;
+        return null;
     }
 
     @Override
@@ -112,6 +113,10 @@ public class Envio implements EnvioComponent {
         this.price = price;
     }
 
+    @Override
+    public void setEstado(EstadoEnvio estado) {
+        this.estado = estado;
+    }
 
     public void setCiudadOrigen(String ciudadOrigen) {
         this.ciudadOrigen = ciudadOrigen;
@@ -129,9 +134,6 @@ public class Envio implements EnvioComponent {
         this.direccionDestino = direccionDestino;
     }
 
-    public void setEstado(EstadoEnvio estado) {
-        this.estado = estado;
-    }
 
     public void setPaquete(Paquete paquete) {
         this.paquete = paquete;

@@ -4,6 +4,7 @@ import co.edu.uniquindio.poo.proyectosameday.App;
 import co.edu.uniquindio.poo.proyectosameday.controller.LoginUserController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -43,12 +44,12 @@ public class AdminViewController {
 
     @FXML
     void onOpenMetricas() {
-        cargarVista("metricas-view.fxml");
+        cargarVista("metrics-panel.fxml");
     }
 
     @FXML
     void onOpenVisualizacion() {
-        cargarVista("visualizacion-view.fxml");
+        cargarVista("metrics-charts.fxml");
     }
 
     @FXML
@@ -83,12 +84,16 @@ public class AdminViewController {
     private void cargarVista(String fxml) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectosameday/" + fxml));
-            Pane newView = loader.load();
+            Parent newView = loader.load();
 
             Object controller = loader.getController();
 
             if (controller instanceof TableUsersViewController tableUsersViewController) {
                 tableUsersViewController.setApp(app);
+            }
+
+            if (controller instanceof AssignShapesViewController assignShapesViewController) {
+                assignShapesViewController.setApp(app);
             }
 
             contentArea.getChildren().setAll(newView);

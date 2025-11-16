@@ -1,5 +1,7 @@
 package co.edu.uniquindio.poo.proyectosameday.viewController;
 
+import co.edu.uniquindio.poo.proyectosameday.App;
+import co.edu.uniquindio.poo.proyectosameday.controller.AdminController;
 import co.edu.uniquindio.poo.proyectosameday.model.Envio;
 import co.edu.uniquindio.poo.proyectosameday.model.EnvioComponent;
 import co.edu.uniquindio.poo.proyectosameday.model.Repartidor;
@@ -12,6 +14,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class AssignShapesViewController {
 
     Database db;
+    App app;
+    AdminController controller;
 
     @FXML
     private TableView<EnvioComponent> tablaEnvios;
@@ -24,9 +28,12 @@ public class AssignShapesViewController {
     @FXML private TableColumn<EnvioComponent, String> colRepartidor;
     @FXML private TableColumn<EnvioComponent, Void> colAsignar;
 
+    Repartidor dealer;
+
     @FXML
     void initialize() {
         this.db=Database.getInstance();
+        this.controller=new AdminController(App.empresa);
         cargarColumnas();
         cargarEnvios();
     }
@@ -40,6 +47,7 @@ public class AssignShapesViewController {
 
         // ComboBox dentro de la celda
         colRepartidor.setCellFactory(col -> new TableCell<>() {
+
             private final ComboBox<Repartidor> combo = new ComboBox<>();
 
             @Override
@@ -48,12 +56,29 @@ public class AssignShapesViewController {
 
                 if (empty) {
                     setGraphic(null);
-                } else {
-                    combo.setItems(FXCollections.observableArrayList(db.getListDealers())); // Lista desde el modelo
-                    setGraphic(combo);
+                    return;
                 }
+
+                EnvioComponent shape = getTableView().getItems().get(getIndex());
+
+                // 🔹 Si ya tiene repartidor → mostrar solo el nombre
+                if (shape.getRepartidor() != null) {
+                    Label lbl = new Label(shape.getRepartidor().getNombre());
+                    setGraphic(lbl);
+                    return;
+                }
+
+                // 🔹 Si NO tiene → mostrar ComboBox
+                combo.setItems(FXCollections.observableArrayList(db.getListDealers()));
+                combo.setValue(null); // Importante: evitar valores previos reciclados
+                setGraphic(combo);
+
+                combo.setOnAction(e -> {
+                    dealer = combo.getValue();
+                });
             }
         });
+
 
         // Botón de asignar
         colAsignar.setCellFactory(col -> new TableCell<>() {
@@ -65,9 +90,14 @@ public class AssignShapesViewController {
             }
 
             private void asignarRepartidor() {
-                EnvioComponent envio = getTableView().getItems().get(getIndex());
-                // Aquí llamas tu lógica para asignar
-                System.out.println("Asignando a envío: " + envio.getId());
+                EnvioComponent shape = getTableView().getItems().get(getIndex());
+                if (shape.getRepartidor() != null) {
+                    MethodsRecycle.showAlert("Error","El envio ya tiene un repartidor asignado",Alert.AlertType.ERROR);
+                    return;
+                }
+                controller.assignDealer(db.getAdminId(app.getAdmin().getId()),shape,dealer);
+                MethodsRecycle.showAlert("Correcto","Se ha asignado correctamente el repartidor al envío", Alert.AlertType.INFORMATION);
+                cargarEnvios();
             }
 
             @Override
@@ -85,5 +115,9 @@ public class AssignShapesViewController {
     @FXML
     private void onActualizarTabla() {
         cargarEnvios();
+    }
+
+    public void setApp(App app) {
+        this.app = app;
     }
 }

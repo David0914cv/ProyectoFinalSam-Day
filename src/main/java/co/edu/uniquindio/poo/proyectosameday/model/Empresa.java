@@ -127,6 +127,16 @@ public class Empresa {
         return null;
     }
 
+    public void updateShape(EnvioComponent shape){
+
+        for (int i = 0; i < listEnvios.size(); i++) {
+            if (listEnvios.get(i).getId().equals(shape.getId())){
+                listEnvios.set(i, shape);
+            }
+        }
+        database.setListEnvios(this.listEnvios);
+    }
+
     public void deleteUser(String id){
         this.listPersonas.removeIf(persona -> persona.getId().equals(id));
         database.deleteUser(id);

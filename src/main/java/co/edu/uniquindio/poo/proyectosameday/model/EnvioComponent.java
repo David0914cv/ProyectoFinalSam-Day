@@ -19,5 +19,6 @@ public interface EnvioComponent {
     public Usuario getUsuario();
     public void setUsuario(Usuario usuario);
     public Repartidor getRepartidor();
-    public void setRepartidor(Repartidor repartidor);
+    public EnvioComponent setRepartidor(Repartidor repartidor);
+    public void setEstado(EstadoEnvio estado);
 }
