@@ -4,12 +4,16 @@ import co.edu.uniquindio.poo.proyectosameday.App;
 import co.edu.uniquindio.poo.proyectosameday.controller.AdminController;
 import co.edu.uniquindio.poo.proyectosameday.model.Envio;
 import co.edu.uniquindio.poo.proyectosameday.model.EnvioComponent;
+import co.edu.uniquindio.poo.proyectosameday.model.EstadoDisponibilidad;
 import co.edu.uniquindio.poo.proyectosameday.model.Repartidor;
 import co.edu.uniquindio.poo.proyectosameday.repository.Database;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AssignShapesViewController {
 
@@ -68,9 +72,15 @@ public class AssignShapesViewController {
                     return;
                 }
 
-                // 🔹 Si NO tiene → mostrar ComboBox
-                combo.setItems(FXCollections.observableArrayList(db.getListDealers()));
-                combo.setValue(null); // Importante: evitar valores previos reciclados
+                List<Repartidor> listDealers=new ArrayList<>();
+
+                for (Repartidor r : db.getListDealers()) {
+                    if(r.getEstado() == EstadoDisponibilidad.ACTIVO){
+                        listDealers.add(r);
+                    }
+                }
+                combo.setItems(FXCollections.observableArrayList(listDealers));
+                combo.setValue(null);
                 setGraphic(combo);
 
                 combo.setOnAction(e -> {

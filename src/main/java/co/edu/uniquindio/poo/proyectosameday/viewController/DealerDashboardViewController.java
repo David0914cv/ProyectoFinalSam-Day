@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.proyectosameday.viewController;
 
 import co.edu.uniquindio.poo.proyectosameday.App;
+import co.edu.uniquindio.poo.proyectosameday.controller.DealerDashboardController;
 import co.edu.uniquindio.poo.proyectosameday.model.EstadoDisponibilidad;
 import co.edu.uniquindio.poo.proyectosameday.repository.Database;
 import javafx.fxml.FXML;
@@ -21,6 +22,7 @@ public class DealerDashboardViewController {
 
     App app;
     Database db;
+    DealerDashboardController controller;
 
     @FXML
     private Button btnName;
@@ -42,11 +44,10 @@ public class DealerDashboardViewController {
 
     private ContextMenu menuNotificaciones;
 
-    private String estadoActual = "Activo"; // Estado inicial
-
     @FXML
     public void initialize() {
         this.db=Database.getInstance();
+        this.controller = new DealerDashboardController(App.empresa);
     }
 
     private void configurarEventos() {
@@ -102,17 +103,25 @@ public class DealerDashboardViewController {
         alert.setHeaderText("Su estado actual es "+state);
         alert.setContentText("¿Qué estado desea cambiar?");
 
-        // Personalizar los botones
+
         ButtonType botonRuta = new ButtonType("En ruta");
         ButtonType botonActivo = new ButtonType("Activo");
         ButtonType botonInactivo = new ButtonType("Inactivo");
         alert.getButtonTypes().setAll(botonRuta, botonActivo, botonInactivo);
 
-        // Mostrar la alerta y esperar respuesta
+
         Optional<ButtonType> resultado = alert.showAndWait();
 
         if (resultado.isPresent() && resultado.get() == botonRuta){
-            System.out.println("En ruta");
+            controller.updateStateDealer(db.getDealerId(app.getPersona().getId()), EstadoDisponibilidad.EN_RUTA);
+        }
+
+        if (resultado.isPresent() && resultado.get() == botonActivo){
+            controller.updateStateDealer(db.getDealerId(app.getPersona().getId()), EstadoDisponibilidad.ACTIVO);
+        }
+
+        if (resultado.isPresent() && resultado.get() == botonInactivo){
+            controller.updateStateDealer(db.getDealerId(app.getPersona().getId()), EstadoDisponibilidad.INACTIVO);
         }
     }
 

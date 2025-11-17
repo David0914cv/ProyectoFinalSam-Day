@@ -67,8 +67,14 @@ public class MetricsChartsViewController {
         pieChartIncidencias.getData().add(new PieChart.Data("CIRCASIA", 15));
         pieChartIncidencias.getData().add(new PieChart.Data("FILANDIA", 20));
         pieChartIncidencias.getData().add(new PieChart.Data("SALENTO", 5));
-        pieChartIncidencias.getData().add(new PieChart.Data("PIJAO", 5));
-        pieChartIncidencias.getData().add(new PieChart.Data("PIJAO", 5));
+        pieChartIncidencias.getData().add(new PieChart.Data("PIJAO", 16));
+        pieChartIncidencias.getData().add(new PieChart.Data("MONTENEGRO", 15));
+        pieChartIncidencias.getData().add(new PieChart.Data("TEBAIDA", 2));
+        pieChartIncidencias.getData().add(new PieChart.Data("CORDOBA", 20));
+        pieChartIncidencias.getData().add(new PieChart.Data("QUIMBAYA", 5));
+        pieChartIncidencias.getData().add(new PieChart.Data("GENOVA", 10));
+        pieChartIncidencias.getData().add(new PieChart.Data("BUENAVISTA", 15));
+
     }
 
     @FXML

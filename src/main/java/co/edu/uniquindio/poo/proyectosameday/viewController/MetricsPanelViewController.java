@@ -31,6 +31,8 @@ public class MetricsPanelViewController {
         s.getData().add(new XYChart.Data<>("Lunes", 32));
         s.getData().add(new XYChart.Data<>("Martes", 28));
         s.getData().add(new XYChart.Data<>("Miércoles", 30));
+        s.getData().add(new XYChart.Data<>("Jueves", 24));
+        s.getData().add(new XYChart.Data<>("Viernes", 18));
 
         chartTiempos.getData().add(s);
     }
@@ -39,9 +41,11 @@ public class MetricsPanelViewController {
     // 2. SERVICIOS MÁS USADOS
     // ===============================
     private void cargarServiciosAdicionales() {
+        chartServicios.getData().add(new PieChart.Data("Normal", 50));
         chartServicios.getData().add(new PieChart.Data("Fragil", 45));
-        chartServicios.getData().add(new PieChart.Data("Express", 30));
-        chartServicios.getData().add(new PieChart.Data("Contraentrega", 25));
+        chartServicios.getData().add(new PieChart.Data("Entrega prioritaria", 30));
+        chartServicios.getData().add(new PieChart.Data("Firma requerida", 25));
+        chartServicios.getData().add(new PieChart.Data("Con seguro", 15));
     }
 
     // ===============================
@@ -65,9 +69,18 @@ public class MetricsPanelViewController {
         XYChart.Series<String, Number> s = new XYChart.Series<>();
         s.setName("Incidencias");
 
-        s.getData().add(new XYChart.Data<>("Norte", 12));
-        s.getData().add(new XYChart.Data<>("Sur", 5));
-        s.getData().add(new XYChart.Data<>("Centro", 18));
+        s.getData().add(new XYChart.Data<>("CALARCA", 12));
+        s.getData().add(new XYChart.Data<>("ARMENIA", 5));
+        s.getData().add(new XYChart.Data<>("CIRCASIA", 18));
+        s.getData().add(new XYChart.Data<>("FILANDIA", 20));
+        s.getData().add(new XYChart.Data<>("SALENTO", 12));
+        s.getData().add(new XYChart.Data<>("PIJAO", 8));
+        s.getData().add(new XYChart.Data<>("MONTENEGRO", 20));
+        s.getData().add(new XYChart.Data<>("TEBAIDA", 15));
+        s.getData().add(new XYChart.Data<>("CORDOBA", 6));
+        s.getData().add(new XYChart.Data<>("QUIMBAYA", 4));
+        s.getData().add(new XYChart.Data<>("GENOVA", 9));
+        s.getData().add(new XYChart.Data<>("BUENAVISTA", 13));
 
         chartIncidencias.getData().add(s);
     }
