@@ -94,7 +94,19 @@ public class QuoteShippingViewController {
 
     @FXML
     void onSending(){
-        app.openSendingUser();
+        if (this.cotizacion==null){
+            MethodsRecycle.showAlert("Advertencia","Debe apretar el botón para calcular la cotización del envío",Alert.AlertType.WARNING);
+            return;
+        }
+
+        app.setCotizacion(cotizacion);
+
+        if (app.getPersona() != null || app.getAdmin() != null) {
+            app.openSendingUser();
+        }else {
+            MethodsRecycle.showAlert("Advertencia","Tiene que iniciar sesión",Alert.AlertType.WARNING);
+            app.openLogin();
+        }
     }
 
     public void setApp(App app) {

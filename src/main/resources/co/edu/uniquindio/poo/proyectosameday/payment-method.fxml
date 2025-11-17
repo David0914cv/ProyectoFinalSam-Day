@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.6"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.poo.proyectosameday.viewController.PaymentMethodViewController"
+            styleClass="contentForm">
+
+    <center>
+        <VBox alignment="CENTER" spacing="20" styleClass="form-box">
+
+            <!-- Título -->
+            <Label text="Pago" styleClass="form-title"/>
+
+
+            <VBox alignment="CENTER" spacing="10">
+                <Label text="Seleccione un método de pago:" styleClass="lblForm"/>
+                <ComboBox fx:id="metodoPagoCombo" promptText="Seleccionar método" prefWidth="250" styleClass="form-input"/>
+            </VBox>
+
+            <!-- Contenedor dinámico -->
+            <StackPane fx:id="paymentContainer" styleClass="payment-container">
+                <Label text="Seleccione un método de pago para continuar" styleClass="lblForm"/>
+            </StackPane>
+
+            <!-- Botones -->
+            <Button text="Confirmar Pago" styleClass="primary-btn" onAction="#onPay"/>
+            <Hyperlink text="Volver" onAction="#onBack"/>
+        </VBox>
+    </center>
+
+</BorderPane>

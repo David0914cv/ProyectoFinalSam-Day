@@ -10,6 +10,10 @@ public abstract class EnvioDecorator implements  EnvioComponent {
         this.envio = envio;
     }
 
+    @Override
+    public String getId() {
+        return envio.getId();
+    }
 
     @Override
     public String getCiudadOrigen() {
@@ -57,7 +61,38 @@ public abstract class EnvioDecorator implements  EnvioComponent {
     }
 
     @Override
+    public Repartidor getRepartidor() {
+        return envio.getRepartidor();
+    }
+
+    @Override
+    public Usuario getUsuario() {
+        return envio.getUsuario();
+    }
+
+    @Override
+    public EnvioComponent setRepartidor(Repartidor repartidor) {
+        envio.setRepartidor(repartidor);
+        return null;
+    }
+
+    @Override
+    public void setUsuario(Usuario usuario) {
+        envio.setUsuario(usuario);
+    }
+
+    @Override
     public void setPrice(double price) {
         envio.setPrice(price);
+    }
+
+    @Override
+    public void setEstado(EstadoEnvio estado) {
+        envio.setEstado(estado);
+    }
+
+    @Override
+    public String getFechaEntregaFormateada() {
+        return envio.getFechaEntregaFormateada();
     }
 }

@@ -1,9 +1,10 @@
 package co.edu.uniquindio.poo.proyectosameday.model.dtos;
 
-public class UsuarioDTO {
-    private String id, name;
+public class AdministradorDTO {
+    private String id;
+    private String name;
 
-    public UsuarioDTO(String id, String name) {
+    public AdministradorDTO(String id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -26,9 +27,9 @@ public class UsuarioDTO {
 
     @Override
     public String toString() {
-        return "UsuarioDTO{" +
+        return "AdministradorDTO{" +
                 "id='" + id + '\'' +
-                ", nombre='" + name + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

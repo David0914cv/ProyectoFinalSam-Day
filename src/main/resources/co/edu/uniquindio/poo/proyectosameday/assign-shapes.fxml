@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.poo.proyectosameday.viewController.AssignShapesViewController"
+            styleClass="dashboard-content">
+
+    <!-- 🔹 Título principal -->
+    <top>
+        <Label text="Asignación de Envíos" styleClass="section-title">
+            <padding><Insets top="10" bottom="20"/></padding>
+        </Label>
+    </top>
+
+    <!-- 🔹 Contenido principal -->
+    <center>
+        <VBox spacing="20">
+
+            <!-- 📝 Tabla de envíos -->
+            <TableView fx:id="tablaEnvios" prefHeight="420" styleClass="table-view">
+
+                <columns>
+                    <TableColumn text="ID Envío" prefWidth="150" fx:id="colIdEnvio"/>
+                    <TableColumn text="Ciudad Destino" prefWidth="200" fx:id="colDestino"/>
+                    <TableColumn text="Ciudad Origen" prefWidth="175" fx:id="colOrigen"/>
+                    <TableColumn text="Fecha" prefWidth="150" fx:id="colFecha"/>
+                    <TableColumn text="Estado" prefWidth="150" fx:id="colEstado"/>
+
+                    <!-- Repartidor / ComboBox -->
+                    <TableColumn text="Repartidor" prefWidth="200" fx:id="colRepartidor"/>
+
+                    <!-- Botón para asignar -->
+                    <TableColumn text="Asignar" prefWidth="150" fx:id="colAsignar"/>
+                </columns>
+
+            </TableView>
+
+            <!-- 📌 Botón general (opcional) -->
+            <HBox spacing="20" alignment="CENTER">
+                <Button text="Actualizar Lista" onAction="#onActualizarTabla" styleClass="secondary-btn"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

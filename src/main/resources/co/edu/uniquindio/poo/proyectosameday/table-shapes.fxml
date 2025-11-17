@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.collections.FXCollections?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="co.edu.uniquindio.poo.proyectosameday.viewController.TableShapesViewController"
+      spacing="15">
+
+    <Label text="Historial de Envíos" styleClass="section-title"/>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Filtrar por fecha:" styleClass="lblForm"/>
+        <DatePicker fx:id="dateFilter" promptText="Seleccionar fecha"/>
+        <Button text="Buscar" onAction="#onSearchDate" styleClass="primary-btn"/>
+        <Button text="Limpiar" onAction="#onClean" styleClass="secondary-btn"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Label text="Filtrar por Estado:" styleClass="lblForm"/>
+        <ChoiceBox fx:id="choiceBoxState">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Solicitado" />
+                    <String fx:value="Asignado" />
+                    <String fx:value="En ruta" />
+                    <String fx:value="Entregado" />
+                    <String fx:value="Incidencia" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+        <Button text="Buscar" onAction="#onSearchState"  styleClass="primary-btn"/>
+        <Button text="Limpiar" onAction="#onClean"  styleClass="secondary-btn"/>
+    </HBox>
+
+    <TableView fx:id="tablaEnvios" prefHeight="300">
+        <columns>
+            <TableColumn text="Destino" fx:id="colDestino" prefWidth="150"/>
+            <TableColumn text="Fecha" fx:id="colFecha" prefWidth="150"/>
+            <TableColumn text="Estado" fx:id="colEstado" prefWidth="100"/>
+            <TableColumn text="Precio" fx:id="colPrecio" prefWidth="100"/>
+        </columns>
+    </TableView>
+</VBox>
+
+

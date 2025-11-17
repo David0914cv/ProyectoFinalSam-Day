@@ -5,10 +5,66 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="co.edu.uniquindio.poo.proyectosameday.viewController.AdminViewController"
-            prefHeight="400.0" prefWidth="600.0">
+            styleClass="dashboard-root">
+
+    <!-- 🔝 Barra superior -->
+    <top>
+        <HBox spacing="20" styleClass="navbar">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+            <Label text="Same-Day" styleClass="logo" />
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Cerrar sesión" onAction="#onLogout" styleClass="logout-btn" />
+        </HBox>
+    </top>
+
+    <!-- 📋 Menú lateral -->
+    <left>
+        <VBox spacing="10" styleClass="sidebar">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <Label text="Panel de Control" styleClass="sidebar-title"/>
+
+            <!-- === Gestión de Usuarios (Botón principal) === -->
+            <Button text="Gestión de Usuarios ▼" styleClass="sidebar-btn" onAction="#toggleUsuarios"/>
+
+            <!-- Submenú Usuarios -->
+            <VBox fx:id="usuariosMenu" spacing="8" visible="false" managed="false" styleClass="submenu">
+                <Button text="Ver Usuarios" styleClass="sidebar-sub-btn" onAction="#onOpenUsers"/>
+                <Button text="Crear Usuario" styleClass="sidebar-sub-btn" onAction="#onOpenCreateUser" />
+            </VBox>
+
+            <!-- === Gestión de Repartidores (Botón principal) === -->
+            <Button text="Gestión de Repartidores ▼" styleClass="sidebar-btn" onAction="#toggleRepartidores"/>
+
+            <!-- Submenú Repartidores -->
+            <VBox fx:id="repartidoresMenu" spacing="8" visible="false" managed="false" styleClass="submenu">
+                <Button text="Ver Repartidores" styleClass="sidebar-sub-btn" onAction="#onOpenRepartidores"/>
+                <Button text="Registrar Repartidor" styleClass="sidebar-sub-btn" onAction="#onOpenCreateDealer" />
+            </VBox>
+
+            <!-- Otras opciones -->
+            <Button text="Asignación de Envíos" onAction="#onOpenAssignShape" styleClass="sidebar-btn"/>
+            <Button text="Panel de Métricas" onAction="#onOpenMetricas" styleClass="sidebar-btn"/>
+            <Button text="Visualización General" onAction="#onOpenVisualizacion" styleClass="sidebar-btn"/>
+
+        </VBox>
+    </left>
+
+
+    <!-- 🧱 Contenido principal -->
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area">
+            <Label text="Bienvenido al panel de administración" styleClass="welcome-text"/>
+        </StackPane>
+    </center>
 
 </BorderPane>

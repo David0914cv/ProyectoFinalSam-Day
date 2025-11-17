@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.poo.proyectosameday.viewController.DealerDashboardViewController"
+            prefWidth="1100" prefHeight="700"
+            styleClass="dashboard-root">
+
+    <!-- 🔵 NAVBAR SUPERIOR -->
+    <top>
+        <HBox spacing="20" styleClass="dashboard-header">
+            <children>
+                <Label text="Panel del Repartidor" styleClass="dashboard-title"/>
+                <Pane HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btnNotifications" styleClass="icon-btn" text="🔔" />
+                <Button fx:id="btnName" styleClass="nav-btn" />
+                <Button text="Cambiar disponibilidad"
+                        fx:id="btnDisponibilidad"
+                        styleClass="nav-btn"/>
+                <Button text="Cerrar sesión" styleClass="logout-btn" fx:id="btnLogout"/>
+            </children>
+        </HBox>
+    </top>
+
+    <!-- 🟣 SIDEBAR IZQUIERDO -->
+    <left>
+        <VBox spacing="15" styleClass="sidebar" prefWidth="200">
+            <Label text="Opciones" styleClass="sidebar-title"/>
+
+            <Button text="Envíos asignados"
+                    fx:id="btnEnvios"
+                    styleClass="sidebar-btn"/>
+
+        </VBox>
+    </left>
+
+    <!-- 🟢 CONTENIDO CENTRAL DINÁMICO -->
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area">
+            <Label text="Bienvenido repartidor 👋"
+                   styleClass="welcome-text"/>
+        </StackPane>
+    </center>
+
+</BorderPane>

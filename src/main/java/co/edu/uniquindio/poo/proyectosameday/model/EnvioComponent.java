@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 public interface EnvioComponent {
 
+    public String getId();
     public String getCiudadOrigen();
     public String getCiudadDestino();
     public String getDireccionOrigen();
@@ -13,5 +14,11 @@ public interface EnvioComponent {
     public double getPrice();
     public LocalDateTime getFechaCreacion();
     public LocalDateTime getFechaEntrega();
+    public String getFechaEntregaFormateada();
     public void setPrice(double price);
+    public Usuario getUsuario();
+    public void setUsuario(Usuario usuario);
+    public Repartidor getRepartidor();
+    public EnvioComponent setRepartidor(Repartidor repartidor);
+    public void setEstado(EstadoEnvio estado);
 }

@@ -9,6 +9,11 @@ public class EnvioEntregaPrioritaria extends EnvioDecorator {
     }
 
     @Override
+    public String getId() {
+        return super.getId();
+    }
+
+    @Override
     public String getCiudadOrigen() {
         return super.getCiudadOrigen();
     }
@@ -40,8 +45,18 @@ public class EnvioEntregaPrioritaria extends EnvioDecorator {
 
     @Override
     public double getPrice() {
-        setPrice(super.getPrice()+3000);
+        setPrice(super.getPrice()+2500);
         return super.getPrice();
+    }
+
+    @Override
+    public Repartidor getRepartidor() {
+        return super.getRepartidor();
+    }
+
+    @Override
+    public Usuario getUsuario() {
+        return super.getUsuario();
     }
 
     @Override
@@ -54,4 +69,8 @@ public class EnvioEntregaPrioritaria extends EnvioDecorator {
         return super.getFechaEntrega();
     }
 
+    @Override
+    public String getFechaEntregaFormateada() {
+        return super.getFechaEntregaFormateada();
+    }
 }

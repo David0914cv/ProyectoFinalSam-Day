@@ -1,18 +1,22 @@
 package co.edu.uniquindio.poo.proyectosameday.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
-public class Envio implements EnvioComponent{
+public class Envio implements EnvioComponent {
 
-    private String ciudadOrigen,ciudadDestino, direccionOrigen, direccionDestino;
+    private String id, ciudadOrigen, ciudadDestino, direccionOrigen, direccionDestino;
     private EstadoEnvio estado;
     private Paquete paquete;
     private double price;
-    private LocalDateTime fechaCreacion,fechaEntrega;
+    private LocalDateTime fechaCreacion, fechaEntrega;
+    private Usuario usuario;
+    private Repartidor repartidor;
 
     public Envio(String ciudadOrigen, String ciudadDestino, String direccionOrigen, String direccionDestino, EstadoEnvio estado, double price,
-                 LocalDateTime fechaCreacion, LocalDateTime fechaEntrega) {
-
+                 LocalDateTime fechaCreacion, LocalDateTime fechaEntrega, Usuario usuario) {
+        this.id = UUID.randomUUID().toString();
         this.ciudadOrigen = ciudadOrigen;
         this.ciudadDestino = ciudadDestino;
         this.direccionOrigen = direccionOrigen;
@@ -21,9 +25,15 @@ public class Envio implements EnvioComponent{
         this.price = price;
         this.fechaCreacion = fechaCreacion;
         this.fechaEntrega = fechaEntrega;
-
+        this.usuario = usuario;
     }
 
+
+
+    @Override
+    public String getId() {
+        return this.id;
+    }
 
     @Override
     public String getCiudadOrigen() {
@@ -71,8 +81,41 @@ public class Envio implements EnvioComponent{
     }
 
     @Override
+    public String getFechaEntregaFormateada() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+        return this.fechaEntrega.format(formatter);
+    }
+
+    @Override
+    public Repartidor getRepartidor() {
+        return this.repartidor;
+    }
+
+    @Override
+    public Usuario getUsuario() {
+        return this.usuario;
+    }
+
+    @Override
+    public EnvioComponent setRepartidor(Repartidor repartidor) {
+        this.repartidor = repartidor;
+        return null;
+    }
+
+    @Override
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    @Override
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public void setEstado(EstadoEnvio estado) {
+        this.estado = estado;
     }
 
     public void setCiudadOrigen(String ciudadOrigen) {
@@ -91,9 +134,6 @@ public class Envio implements EnvioComponent{
         this.direccionDestino = direccionDestino;
     }
 
-    public void setEstado(EstadoEnvio estado) {
-        this.estado = estado;
-    }
 
     public void setPaquete(Paquete paquete) {
         this.paquete = paquete;
@@ -105,5 +145,22 @@ public class Envio implements EnvioComponent{
 
     public void setFechaEntrega(LocalDateTime fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
+    }
+
+    @Override
+    public String toString() {
+        return "Envio{" +
+                "ciudadOrigen='" + ciudadOrigen + '\'' +
+                ", ciudadDestino='" + ciudadDestino + '\'' +
+                ", direccionOrigen='" + direccionOrigen + '\'' +
+                ", direccionDestino='" + direccionDestino + '\'' +
+                ", estado=" + estado +
+                ", paquete=" + paquete +
+                ", price=" + price +
+                ", fechaCreacion=" + fechaCreacion +
+                ", fechaEntrega=" + fechaEntrega +
+                ", usuario=" + usuario +
+                ", repartidor=" + repartidor +
+                '}';
     }
 }

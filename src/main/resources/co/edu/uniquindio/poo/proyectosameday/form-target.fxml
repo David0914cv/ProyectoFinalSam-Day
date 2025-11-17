@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.poo.proyectosameday.viewController.FormTargetViewController"
+            prefHeight="400.0" prefWidth="600.0" styleClass="sub-form">
+
+    <Label text="Pago con Tarjeta de Crédito" styleClass="lblForm"/>
+    <TextField fx:id="numeroTarjetaField" promptText="Número de tarjeta" styleClass="form-input"/>
+    <TextField fx:id="titularField" promptText="Nombre del titular" styleClass="form-input"/>
+    <HBox spacing="10" alignment="CENTER">
+        <TextField fx:id="fechaExpField" promptText="MM/AA" styleClass="form-input" prefWidth="80"/>
+        <PasswordField fx:id="cvvField" promptText="CVV" styleClass="form-input" prefWidth="80"/>
+    </HBox>
+</VBox>
+

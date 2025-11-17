@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.6"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.poo.proyectosameday.viewController.FormTransferViewController"
+      alignment="CENTER"
+      spacing="10"
+      styleClass="sub-form">
+
+    <Label text="Pago por Transferencia Bancaria" styleClass="lblForm"/>
+
+    <TextField fx:id="nombreBancoField" promptText="Nombre del Banco" styleClass="form-input"/>
+    <TextField fx:id="numeroCuentaField" promptText="Número de Cuenta" styleClass="form-input"/>
+    <TextField fx:id="titularCuentaField" promptText="Titular de la Cuenta" styleClass="form-input"/>
+
+    <Label text="Sube el comprobante de la transferencia:" styleClass="lblForm"/>
+    <Button onAction="#onOpenArchive" text="Seleccionar Archivo" styleClass="secondary-btn"/>
+</VBox>

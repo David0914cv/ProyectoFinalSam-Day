@@ -1,22 +1,21 @@
 package co.edu.uniquindio.poo.proyectosameday.model;
 
-public class Repartidor extends Persona{
+import java.util.ArrayList;
+import java.util.List;
 
-    private String documento;
+public class Repartidor extends Persona implements Observer{
+
     private EstadoDisponibilidad estado;
+    private List<String> listNotifications;
 
     public Repartidor(String nombre, String telefono, String contrasena, String documento, EstadoDisponibilidad estado) {
-        super(nombre, telefono,Hash.hashear(contrasena));
-        this.documento = documento;
+        super(documento,nombre, telefono,Hash.hashear(contrasena));
         this.estado = estado;
+        this.listNotifications = new ArrayList<>();
     }
 
-    public String getDocumento() {
-        return documento;
-    }
-
-    public void setDocumento(String documento) {
-        this.documento = documento;
+    public void addListNotification(String notify){
+        this.listNotifications.add(notify);
     }
 
     public EstadoDisponibilidad getEstado() {
@@ -27,15 +26,21 @@ public class Repartidor extends Persona{
         this.estado = estado;
     }
 
+    public List<String> getListNotifications() {
+        return listNotifications;
+    }
+
+    public void setListNotifications(List<String> listNotifications) {
+        this.listNotifications = listNotifications;
+    }
+
     @Override
     public String toString() {
-        return "Repartidor{\n" +
-                "documento=" + documento + '\n' +
-                "estado=" + estado + '\n' +
-                "id= "+ getId() + "\n" +
-                "nombre= "+ getNombre() + '\n' +
-                "telefono= "+ getTelefono() + '\n' +
-                "contraseña= "+getContrasena() + '\n' +
-                '}';
+        return "Repartidor: "+getNombre();
+    }
+
+    @Override
+    public void update(String notify) {
+        addListNotification(notify);
     }
 }

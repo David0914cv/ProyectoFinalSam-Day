@@ -9,6 +9,11 @@ public class EnvioSeguro extends EnvioDecorator {
     }
 
     @Override
+    public String getId() {
+        return super.getId();
+    }
+
+    @Override
     public String getCiudadOrigen() {
         return super.getCiudadOrigen();
     }
@@ -45,6 +50,16 @@ public class EnvioSeguro extends EnvioDecorator {
     }
 
     @Override
+    public Repartidor getRepartidor() {
+        return super.getRepartidor();
+    }
+
+    @Override
+    public Usuario getUsuario() {
+        return super.getUsuario();
+    }
+
+    @Override
     public LocalDateTime getFechaCreacion() {
         return super.getFechaCreacion();
     }
@@ -52,6 +67,11 @@ public class EnvioSeguro extends EnvioDecorator {
     @Override
     public LocalDateTime getFechaEntrega() {
         return super.getFechaEntrega();
+    }
+
+    @Override
+    public String getFechaEntregaFormateada() {
+        return super.getFechaEntregaFormateada();
     }
 
 }

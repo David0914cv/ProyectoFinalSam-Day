@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.AreaChart?>
+<ScrollPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.poo.proyectosameday.viewController.MetricsPanelViewController"
+            fitToWidth="true">
+
+    <VBox spacing="25" prefWidth="900" style="-fx-padding: 20;">
+
+        <!-- 1. Tiempos promedio de entrega -->
+        <TitledPane text="Tiempos promedio de entrega">
+            <content>
+                <BarChart fx:id="chartTiempos"
+                          prefHeight="300"
+                          title="Tiempo promedio">
+                    <xAxis>
+                        <CategoryAxis label="Día" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Minutos" />
+                    </yAxis>
+                </BarChart>
+            </content>
+        </TitledPane>
+
+        <!-- 2. Servicios adicionales más usados -->
+        <TitledPane text="Servicios adicionales más usados">
+            <content>
+                <PieChart fx:id="chartServicios"
+                          prefHeight="300" />
+            </content>
+        </TitledPane>
+
+        <!-- 3. Ingresos por periodo -->
+        <TitledPane text="Ingresos por periodo">
+            <content>
+                <AreaChart fx:id="chartIngresos"
+                           prefHeight="300"
+                           title="Ingresos">
+                    <xAxis>
+                        <NumberAxis label="Mes" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Ingresos ($)" />
+                    </yAxis>
+                </AreaChart>
+            </content>
+        </TitledPane>
+
+        <!-- 4. Incidencias por zona -->
+        <TitledPane text="Incidencias por zona">
+            <content>
+                <BarChart fx:id="chartIncidencias"
+                          prefHeight="300"
+                          title="Incidencias">
+                    <xAxis>
+                        <CategoryAxis label="Zona" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Cantidad" />
+                    </yAxis>
+                </BarChart>
+            </content>
+        </TitledPane>
+
+    </VBox>
+
+</ScrollPane>

@@ -9,6 +9,12 @@ public class Administrador {
         this.contrasena = Hash.hashear(contrasena);
     }
 
+    public void assignDealer(Empresa empresa, EnvioComponent shape,Repartidor dealer ){
+        shape.setRepartidor(dealer);
+        shape.setEstado(EstadoEnvio.ASIGNADO);
+        empresa.updateShape(shape);
+    }
+
     public String getDocumento() {
         return documento;
     }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.poo.proyectosameday.viewController.MetricsChartsViewController">
+
+    <children>
+        <ScrollPane fitToWidth="true"
+                    AnchorPane.topAnchor="0"
+                    AnchorPane.leftAnchor="0"
+                    AnchorPane.rightAnchor="0"
+                    AnchorPane.bottomAnchor="0">
+
+            <content>
+                <VBox spacing="40">
+                    <padding>
+                        <Insets top="20" right="20" bottom="20" left="20"/>
+                    </padding>
+
+                    <LineChart fx:id="lineChartTiempo" title="Tiempo promedio por día"
+                               prefHeight="350">
+                        <xAxis>
+                            <CategoryAxis label="Día" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Minutos" />
+                        </yAxis>
+                    </LineChart>
+
+                    <BarChart fx:id="barChartServicios" title="Servicios adicionales más usados"
+                              prefHeight="350">
+                        <xAxis>
+                            <CategoryAxis label="Servicio" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Cantidad" />
+                        </yAxis>
+                    </BarChart>
+
+                    <PieChart fx:id="pieChartIncidencias" title="Incidencias por zona"
+                              prefHeight="300"/>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>
