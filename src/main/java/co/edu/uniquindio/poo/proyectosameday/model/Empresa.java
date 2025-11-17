@@ -103,11 +103,12 @@ public class Empresa {
                     user.setNombre(name);
                     user.setTelefono(cell);
                     listPersonas.set(i, user);
-                    database.setListPersonas(this.listPersonas);
+
                     return new PersonaDTO(user.getId(), user.getNombre(), "Usuario");
                 }
             }
         }
+        database.setListPersonas(this.listPersonas);
         return null;
     }
 
@@ -119,12 +120,26 @@ public class Empresa {
                     dealer.setNombre(name);
                     dealer.setTelefono(cell);
                     listPersonas.set(i, dealer);
-                    database.setListPersonas(this.listPersonas);
+
                     return new PersonaDTO(dealer.getId(), dealer.getNombre(), "Repartidor");
                 }
             }
         }
+        database.setListPersonas(this.listPersonas);
         return null;
+    }
+
+    public void updateStateDealer(String id, EstadoDisponibilidad state){
+        for (int i = 0; i < listPersonas.size(); i++) {
+            if (listPersonas.get(i).getId().equals(id)){
+                if (listPersonas.get(i).getClass() == Repartidor.class){
+                    Repartidor dealer = (Repartidor) listPersonas.get(i);
+                    dealer.setEstado(state);
+                    listPersonas.set(i, dealer);
+                }
+            }
+        }
+        database.setListPersonas(this.listPersonas);
     }
 
     public void updateShape(EnvioComponent shape){

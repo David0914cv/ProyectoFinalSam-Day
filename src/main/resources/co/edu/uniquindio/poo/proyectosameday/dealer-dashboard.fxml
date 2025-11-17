@@ -16,6 +16,7 @@
             <children>
                 <Label text="Panel del Repartidor" styleClass="dashboard-title"/>
                 <Pane HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btnNotifications" styleClass="icon-btn" text="🔔" />
                 <Button fx:id="btnName" styleClass="nav-btn" />
                 <Button text="Cambiar disponibilidad"
                         fx:id="btnDisponibilidad"

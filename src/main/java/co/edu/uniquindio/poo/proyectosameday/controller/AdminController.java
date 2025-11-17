@@ -40,17 +40,9 @@ public class AdminController {
 
     public void assignDealer(Administrador admin, EnvioComponent shape, Repartidor dealer){
         System.out.println("hola 2:"+shape.getId());
-        admin.assignDealer(this.empresa, shape, dealer);
-        notifyUsers(shape.getUsuario(),dealer, "Se ha asignado al envio con id "+shape.getId()+"El repartidor"+dealer.getNombre());
-    }
+        AssignDealerFacade facade = new AssignDealerFacade(admin,new Notify());
 
-    private void notifyUsers(Usuario user, Repartidor dealer, String message){
-        Notify system = new Notify();
-
-        system.addObserver(user);
-        system.addObserver(dealer);
-
-        system.importantChange(message);
+        facade.assignDealer(this.empresa,shape,dealer,shape.getUsuario(),"Se ha asignado al envio con id: \n"+shape.getId()+"\nA el repartidor"+dealer.getNombre());
     }
 
 }

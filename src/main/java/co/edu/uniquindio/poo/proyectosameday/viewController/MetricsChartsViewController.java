@@ -52,20 +52,28 @@ public class MetricsChartsViewController {
         BarChart.Series<String, Number> serie = new BarChart.Series<>();
         serie.setName("Uso de servicios");
 
-        serie.getData().add(new XYChart.Data<>("Envío express", 120));
-        serie.getData().add(new XYChart.Data<>("Fragile", 75));
+        serie.getData().add(new XYChart.Data<>("Envío normal", 120));
+        serie.getData().add(new XYChart.Data<>("Fragil", 75));
         serie.getData().add(new XYChart.Data<>("Seguro extra", 50));
-        serie.getData().add(new XYChart.Data<>("Contraentrega", 110));
+        serie.getData().add(new XYChart.Data<>("Prioritaria", 110));
+        serie.getData().add(new XYChart.Data<>("Firma requerida", 110));
 
         barChartServicios.getData().add(serie);
     }
 
     private void cargarPieIncidencias() {
-        pieChartIncidencias.getData().add(new PieChart.Data("Norte", 10));
-        pieChartIncidencias.getData().add(new PieChart.Data("Sur", 25));
-        pieChartIncidencias.getData().add(new PieChart.Data("Centro", 15));
-        pieChartIncidencias.getData().add(new PieChart.Data("Occidente", 20));
-        pieChartIncidencias.getData().add(new PieChart.Data("Oriente", 5));
+        pieChartIncidencias.getData().add(new PieChart.Data("CALARCA", 10));
+        pieChartIncidencias.getData().add(new PieChart.Data("ARMENIA", 25));
+        pieChartIncidencias.getData().add(new PieChart.Data("CIRCASIA", 15));
+        pieChartIncidencias.getData().add(new PieChart.Data("FILANDIA", 20));
+        pieChartIncidencias.getData().add(new PieChart.Data("SALENTO", 5));
+        pieChartIncidencias.getData().add(new PieChart.Data("PIJAO", 5));
+        pieChartIncidencias.getData().add(new PieChart.Data("PIJAO", 5));        listCiudades.add("MONTENEGRO");
+        listCiudades.add("TEBAIDA");
+        listCiudades.add("CORDOBA");
+        listCiudades.add("QUIMBAYA");
+        listCiudades.add("GENOVA");
+        listCiudades.add("BUENAVISTA
     }
 
     @FXML
